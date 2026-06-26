@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDI — Kevilyn Berato | Caminho para Coordenação</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAFA; --surface: #FFFFFF; --text: #1A1A2E; --text-secondary: #5A5A7A;
+  --accent: #EA1D2C; --accent-light: #FFF0F1; --accent-dark: #C4151F;
+  --green: #00A868; --green-light: #E6F9F1;
+  --blue: #3B82F6; --blue-light: #EFF6FF;
+  --amber: #F59E0B; --amber-light: #FFFBEB;
+  --purple: #8B5CF6; --purple-light: #F3F0FF;
+  --border: #E8E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.container{max-width:960px;margin:0 auto;padding:0 24px;}
+.hero{background:linear-gradient(135deg,#1A1A2E 0%,#2D1B4E 50%,#EA1D2C 100%);color:white;padding:48px 0 36px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(234,29,44,0.15) 0%,transparent 70%);border-radius:50%;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:6px;}
+.hero .subtitle{font-size:16px;font-weight:300;opacity:0.85;margin-bottom:20px;}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;font-size:12px;opacity:0.75;}
+@media(max-width:700px){.hero h1{font-size:28px;}.hero{padding:32px 0 24px;}}
+section{padding:40px 0;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:6px;}
+.section-desc{color:var(--text-secondary);font-size:14px;margin-bottom:28px;max-width:700px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:14px;transition:box-shadow 0.2s;}
+.card:hover{box-shadow:var(--shadow-md);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr;}}
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.score-box{text-align:center;padding:16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.score-box .number{font-size:28px;font-weight:800;color:var(--accent);line-height:1;}
+.score-box .label{font-size:10px;font-weight:600;color:var(--text-secondary);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+@media(max-width:600px){.score-grid{grid-template-columns:repeat(2,1fr);}}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;margin:2px 3px 2px 0;}
+.tag-green{background:var(--green-light);color:var(--green);}
+.tag-amber{background:var(--amber-light);color:#B45309;}
+.quote{border-left:3px solid var(--accent);padding:10px 16px;margin:10px 0;background:var(--accent-light);border-radius:0 8px 8px 0;font-size:13px;font-style:italic;}
+.quote-author{font-style:normal;font-weight:600;font-size:11px;color:var(--accent-dark);margin-top:4px;}
+.divider{height:1px;background:var(--border);margin:40px 0;}
+.footer{text-align:center;padding:32px 0;font-size:11px;color:var(--text-secondary);border-top:1px solid var(--border);}
+
+/* MAIN TABS */
+.main-tabs{display:flex;background:var(--surface);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow);}
+.main-tab{flex:1;padding:16px 12px;text-align:center;font-size:14px;font-weight:700;cursor:pointer;color:var(--text-secondary);border:none;background:none;transition:all 0.2s;font-family:inherit;position:relative;}
+.main-tab.active{color:var(--accent);}
+.main-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--accent);border-radius:3px 3px 0 0;}
+.main-tab:hover:not(.active){color:var(--text);}
+.main-content{display:none;}
+.main-content.active{display:block;}
+
+/* PILLAR TABS */
+.tabs{display:flex;gap:4px;background:#F0F0F5;border-radius:10px;padding:4px;margin-bottom:20px;overflow-x:auto;}
+.tab{padding:9px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text-secondary);transition:all 0.2s;white-space:nowrap;border:none;background:none;font-family:inherit;}
+.tab.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow);}
+.tab:hover:not(.active){color:var(--text);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* MONTH TABS */
+.month-tabs{display:flex;gap:4px;margin-bottom:20px;overflow-x:auto;padding-bottom:4px;}
+.month-tab{padding:9px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text-secondary);border:1px solid var(--border);background:var(--surface);transition:all 0.2s;white-space:nowrap;min-width:56px;text-align:center;font-family:inherit;}
+.month-tab.active{background:var(--accent);color:white;border-color:var(--accent);}
+.month-tab:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+.month-content{display:none;}
+.month-content.active{display:block;}
+
+/* PILLAR HEADERS */
+.pillar-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.pillar-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.pillar-title{font-weight:700;font-size:16px;}
+.pillar-subtitle{font-size:12px;color:var(--text-secondary);}
+.ratio-bar{display:flex;height:7px;border-radius:4px;overflow:hidden;margin:16px 0 10px;}
+.ratio-70{width:70%;background:var(--accent);}
+.ratio-20{width:20%;background:var(--blue);}
+.ratio-10{width:10%;background:var(--purple);}
+.ratio-legend{display:flex;gap:16px;font-size:11px;color:var(--text-secondary);margin-bottom:20px;}
+.ratio-legend span{display:flex;align-items:center;gap:5px;}
+.ratio-dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.action-category{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid;}
+.cat-70{color:var(--accent);border-color:var(--accent);}
+.cat-20{color:var(--blue);border-color:var(--blue);}
+.cat-10{color:var(--purple);border-color:var(--purple);}
+.action-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;}
+.action-item:last-child{border-bottom:none;}
+.action-check{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-size:11px;}
+.action-check.checked{background:var(--green);border-color:var(--green);color:white;}
+.action-text{font-size:13px;line-height:1.5;}
+.action-text strong{font-weight:600;}
+.action-deadline{font-size:10px;color:var(--text-secondary);margin-top:3px;}
+
+/* MONTH PILLAR HEADERS */
+.mph{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;margin-bottom:6px;margin-top:16px;font-weight:700;font-size:13px;}
+.mph:first-of-type{margin-top:0;}
+.mph-visao{background:var(--accent-light);color:var(--accent);}
+.mph-liderança{background:var(--blue-light);color:var(--blue);}
+.mph-influência{background:var(--purple-light);color:var(--purple);}
+.mph-conflitos{background:var(--amber-light);color:#B45309;}
+.mph-curso{background:#F0F0F5;color:var(--text);}
+
+/* PROGRESS */
+.month-progress{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.progress-bar-bg{flex:1;height:8px;background:#F0F0F5;border-radius:4px;overflow:hidden;}
+.progress-bar-fill{height:100%;background:var(--green);border-radius:4px;transition:width 0.3s;}
+.progress-label{font-size:12px;font-weight:700;min-width:36px;text-align:right;}
+.progress-text{font-size:11px;color:var(--text-secondary);}
+.month-marco{display:flex;align-items:center;gap:8px;margin-top:16px;padding:10px 14px;background:var(--green-light);border:1px solid #B8EDD4;border-radius:8px;font-size:12px;font-weight:600;color:var(--green);}
+
+/* INFO BOX */
+.info-box{background:var(--blue-light);border:1px solid #BFDBFE;border-radius:8px;padding:14px;margin:10px 0;font-size:12px;color:var(--text);line-height:1.6;}
+.info-box strong{color:var(--blue);}
+
+/* BUTTONS */
+.btn-add{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.2s;font-family:inherit;}
+.btn-add:hover{background:var(--accent-dark);}
+.btn-small{padding:6px 12px;font-size:11px;background:#F0F0F5;color:var(--text-secondary);border:1px dashed var(--border);border-radius:8px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;margin-top:14px;font-family:inherit;font-weight:600;width:100%;justify-content:center;}
+.btn-small:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light);}
+.btn-delete{background:none;border:none;color:#CCC;cursor:pointer;font-size:15px;padding:3px 6px;border-radius:4px;transition:color 0.2s;}
+.btn-delete:hover{color:var(--accent);}
+.btn-edit{background:none;border:none;color:#CCC;cursor:pointer;font-size:13px;padding:3px 6px;border-radius:4px;transition:color 0.2s;}
+.btn-edit:hover{color:var(--blue);}
+
+/* STAKEHOLDER TABLE */
+.stk-table{width:100%;border-collapse:collapse;font-size:12px;}
+.stk-table th{text-align:left;padding:9px 10px;background:#F0F0F5;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--border);}
+.stk-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.stk-table tr:hover{background:#FAFAFA;}
+.stk-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;}
+.stk-tag-alto{background:#FEE2E2;color:#DC2626;}
+.stk-tag-medio{background:var(--amber-light);color:#B45309;}
+.stk-tag-baixo{background:var(--green-light);color:var(--green);}
+.stk-group{font-size:12px;font-weight:700;padding:12px 10px 6px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--accent-light);}
+
+/* STK LOG */
+.log-row{display:flex;gap:8px;margin-top:6px;align-items:center;}
+.log-input{padding:5px 8px;border:1px solid var(--border);border-radius:6px;font-size:11px;font-family:inherit;background:var(--bg);}
+.log-input:focus{outline:none;border-color:var(--accent);}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:100;justify-content:center;align-items:center;}
+.modal-overlay.show{display:flex;}
+.modal{background:var(--surface);border-radius:var(--radius);padding:28px;max-width:460px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-height:90vh;overflow-y:auto;}
+.modal h3{font-size:16px;font-weight:700;margin-bottom:16px;}
+.modal label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:5px;margin-top:14px;}
+.modal label:first-of-type{margin-top:0;}
+.modal input,.modal select,.modal textarea{width:100%;padding:9px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;background:var(--bg);}
+.modal input:focus,.modal select:focus,.modal textarea:focus{outline:none;border-color:var(--accent);}
+.modal-actions{display:flex;gap:10px;margin-top:20px;justify-content:flex-end;}
+.modal-actions button{padding:9px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;border:none;}
+.btn-cancel{background:#F0F0F5;color:var(--text-secondary);}
+.btn-save{background:var(--accent);color:white;}
+.btn-save:hover{background:var(--accent-dark);}
+
+/* STK ORIENTATION CARDS */
+.orient-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;}
+.orient-title{font-weight:700;font-size:14px;margin-bottom:4px;}
+.orient-sub{font-size:11px;color:var(--text-secondary);margin-bottom:10px;}
+.orient-list{list-style:none;padding:0;}
+.orient-list li{padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
+.orient-list li:last-child{border-bottom:none;}
+.orient-bullet{color:var(--accent);font-weight:700;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">Plano de Desenvolvimento Individual</div>
+    <h1>De Senior a Coordenadora</h1>
+    <p class="subtitle">Kevilyn Berato — Planejamento Comercial, Anota Ai (iFood)</p>
+    <div class="hero-meta">
+      <span>Horizonte: 12 meses (Jul/26 — Jun/27)</span>
+      <span>Avaliação: Brilhou na Entrega</span>
+      <span>Grade: 10</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN TABS -->
+<nav class="main-tabs">
+  <button class="main-tab active" onclick="switchMain(0)">Resumo</button>
+  <button class="main-tab" onclick="switchMain(1)">Mês a Mês</button>
+  <button class="main-tab" onclick="switchMain(2)">Stakeholders</button>
+</nav>
+
+<!-- ======================== ABA 1: RESUMO ======================== -->
+<div class="main-content active" id="main-0">
+
+<!-- SNAPSHOT -->
+<section>
+  <div class="container">
+    <div class="section-label">Ponto de partida</div>
+    <div class="section-title">Retrato da AvD 26.1</div>
+    <p class="section-desc">Sua avaliação 360 revela uma profissional que já exerce liderança informal com excelência técnica reconhecida por todos os avaliadores. O caminho para coordenação passa por formalizar essa influência e elevar o olhar estratégico.</p>
+    <div class="score-grid">
+      <div class="score-box"><div class="number">4.0</div><div class="label">Cultura</div></div>
+      <div class="score-box"><div class="number">4.0</div><div class="label">Performance</div></div>
+      <div class="score-box"><div class="number">3.95</div><div class="label">Média Geral</div></div>
+      <div class="score-box"><div class="number">12</div><div class="label">Avaliadores</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:10px;color:var(--green);">Forças reconhecidas</h3>
+        <span class="tag tag-green">Referencia técnica</span><span class="tag tag-green">Ambidestria / IA</span><span class="tag tag-green">Protagonismo</span><span class="tag tag-green">Storytelling</span><span class="tag tag-green">Mentalidade de dono</span><span class="tag tag-green">Parceria com comercial</span><span class="tag tag-green">Buddy dos pares</span><span class="tag tag-green">Comunicação executiva</span>
+      </div>
+      <div class="card">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:10px;color:var(--amber);">Gaps para coordenação</h3>
+        <span class="tag tag-amber">Visão estratégica médio/longo prazo</span><span class="tag tag-amber">Conflitos produtivos</span><span class="tag tag-amber">Rede de stakeholders</span><span class="tag tag-amber">Formalizar liderança</span><span class="tag tag-amber">Proximidade com a ponta</span><span class="tag tag-amber">Sonhar grande</span>
+      </div>
+    </div>
+    <div style="margin-top:20px;">
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:10px;">Vozes que importam</h3>
+      <div class="quote">"Comece a puxar o estratégico de médio e longo prazo com mais intencionalidade. Você já domina o operacional — agora é hora de fazer as perguntas que ninguém está fazendo."<div class="quote-author">Monica Vasconcelos — Liderança Direta</div></div>
+      <div class="quote">"Você jáesta muito acima do esperado para senior! Seria muito bacana se você comecasse a estruturar e formalizar essa liderança que você já exerce de forma natural."<div class="quote-author">Matheus Santos — Par (Analista SR BI)</div></div>
+      <div class="quote">"Continue criando e participando ativamente dessas agendas, tornando a comunicação entre times cada vez mais fluida e transparente."<div class="quote-author">Kleber Ferreira — Coord Comercial</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin:0;"></div>
+
+<!-- 4 PILARES -->
+<section>
+  <div class="container">
+    <div class="section-label">Estrategia de desenvolvimento</div>
+    <div class="section-title">4 Pilares para a Coordenação</div>
+    <p class="section-desc">Cada pilar foi derivado dos feedbacks e organizado no modelo 70/20/10. Dedicação de ~2h semanais para cursos.</p>
+    <div class="ratio-bar"><div class="ratio-70"></div><div class="ratio-20"></div><div class="ratio-10"></div></div>
+    <div class="ratio-legend">
+      <span><span class="ratio-dot" style="background:var(--accent)"></span> 70% On-the-job</span>
+      <span><span class="ratio-dot" style="background:var(--blue)"></span> 20% Social Learning</span>
+      <span><span class="ratio-dot" style="background:var(--purple)"></span> 10% Formal</span>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab(0)">Visão Estratégica</button>
+      <button class="tab" onclick="switchTab(1)">Liderança Formal</button>
+      <button class="tab" onclick="switchTab(2)">Influência & Stakeholders</button>
+      <button class="tab" onclick="switchTab(3)">Conflitos Produtivos</button>
+    </div>
+
+    <!-- VISAO ESTRATEGICA -->
+    <div class="tab-content active" id="tab-0">
+      <div class="card">
+        <div class="pillar-header">
+          <div class="pillar-icon" style="background:var(--accent-light);color:var(--accent);">&#127919;</div>
+          <div><div class="pillar-title">Visão Estratégica de Médio e Longo Prazo</div><div class="pillar-subtitle">Fazer as perguntas que ninguém está fazendo e antecipar oportunidades</div></div>
+        </div>
+        <p class="action-category cat-70">70% — Aprender fazendo</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Criar um "radar estratégico" mensal</strong> — Reservar 2h/mês para mapear oportunidades e riscos não obvios na esteira de leads. Documentar em 1 pagina e levar para 1:1 com Monica.</div><div class="action-deadline">Início: Jul/26 | Recorrente: mensal</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Liderar 1 deep dive estratégico por mês</strong> — Temas não obvios: conversao por perfil de lead, sazonalidade em ativação, correlação setup vs churn. Apresentar para gerencia com recomendação de ação.</div><div class="action-deadline">Primeiro: Jul/26 | Recorrente: mensal</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Acompanhar 1 dia de operação por mês</strong> — Vivenciar as dores da ponta para conectar dado ao que o time vive na pratica (sugestão da Francieli).</div><div class="action-deadline">Início: Jul/26 | Recorrente: mensal</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Construir a "linha do tempo" de evolucoes de SOPs</strong> — Documentar mudancas, impactos e licoes aprendidas. Ser a guardia da memoria institucional da área (sugestão da Thalita).</div><div class="action-deadline">Entrega: Out/26</div></div></div>
+
+        <p class="action-category cat-20" style="margin-top:18px;">20% — Aprender com outros</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Agendar 1 cafe mensal com coordenadores de outras áreas</strong> — Produto, Growth, Marketing, BI. Objetivo: entender dores e como planejamento comercial pode gerar mais valor.</div><div class="action-deadline">Início: Jul/26 | Recorrente</div></div></div>
+
+        <p class="action-category cat-10" style="margin-top:18px;">10% — Formação</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Product Growth (PM3)</strong> — Estrategias de growth, product-led growth, experimentação e metricas de crescimento.</div><div class="action-deadline">Jul-Ago/26</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Liderança Estratégica (Coursera for Business / FIA)</strong> — Papel do lider no processo estratégico, como conduzir times para resultados superiores.</div><div class="action-deadline">Set-Out/26</div></div></div>
+      </div>
+    </div>
+
+    <!-- LIDERANCA FORMAL -->
+    <div class="tab-content" id="tab-1">
+      <div class="card">
+        <div class="pillar-header">
+          <div class="pillar-icon" style="background:var(--blue-light);color:var(--blue);">&#128101;</div>
+          <div><div class="pillar-title">Formalização da Liderança</div><div class="pillar-subtitle">Transformar liderança natural em liderança intencional e estruturada</div></div>
+        </div>
+        <p class="action-category cat-70">70% — Aprender fazendo</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Abrir sessoes de troca de conhecimento com o time</strong> — Convites abertos: "Quer trocar sobre X?". Comecar com temas de IA e análises avancadas. Se houver interesse, evoluir organicamente.</div><div class="action-deadline">Início: Jul/26 | Formato flexivel</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Criar e facilitar "Workshop de IA" mensal</strong> — Compartilhar conhecimento sobre agents, automações, prompts. Abrir para o time comercial (sugestão da Monica).</div><div class="action-deadline">Primeiro: Ago/26 | Recorrente: mensal</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Assumir a liderança de 1 iniciativa cross-squad</strong> — Projeto que envolva mais de uma squad. Coordenar timelines, responsaveis e entregas.</div><div class="action-deadline">Início: Set/26</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Documentar processos-chave e criar playbooks</strong> — Reduzir dependencia da sua referência. Criar documentação que permita ao time operar com autonomia.</div><div class="action-deadline">3 playbooks ate: Dez/26</div></div></div>
+
+        <p class="action-category cat-20" style="margin-top:18px;">20% — Aprender com outros</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Pedir feedback estruturado trimêstral a Monica</strong> — "Em que situação eu agi como coordenadora? Onde voltei para o operacional?"</div><div class="action-deadline">Rodadas: Set/26, Dez/26, Mar/27</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Acompanhar 2-3 reunioes-chave de um coordenador por trimêstre</strong> — Observar como gerenciam conflitos, priorizam e tomam decisao na pratica.</div><div class="action-deadline">Primeiro: Ago/26</div></div></div>
+
+        <p class="action-category cat-10" style="margin-top:18px;">10% — Formação</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Liderança e Estrategia de Produtos Digitais (Tera)</strong> — Facilitação, gestao de stakeholders, gestao de pessoas, autonomia e influência.</div><div class="action-deadline">Nov-Dez/26</div></div></div>
+      </div>
+    </div>
+
+    <!-- INFLUENCIA -->
+    <div class="tab-content" id="tab-2">
+      <div class="card">
+        <div class="pillar-header">
+          <div class="pillar-icon" style="background:var(--purple-light);color:var(--purple);">&#127760;</div>
+          <div><div class="pillar-title">Influência & Gestao de Stakeholders</div><div class="pillar-subtitle">Ampliar rede alem do comercial e construir reputação cross-funcional</div></div>
+        </div>
+        <p class="action-category cat-70">70% — Aprender fazendo</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Manter mapa de stakeholders atualizado</strong> — Veja a aba "Stakeholders" para acompanhar contatos, temas e registrar conversas.</div><div class="action-deadline">Revisão: trimêstral</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Participar ativamente de 1 forum/comite cross-área</strong> — Representar SOPs Inbound em discussões com produto, growth ou marketing.</div><div class="action-deadline">Início: Ago/26</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Elevar a narrativa nas apresentações semanais</strong> — Você já apresenta. Próximo nível: trazer "o porquê" dos números, antecipar perguntas e incluir recomendações estratégicas.</div><div class="action-deadline">Prática continua a partir de Jul/26</div></div></div>
+
+        <p class="action-category cat-20" style="margin-top:18px;">20% — Aprender com outros</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Cobrir agendas de liderança comercial quando surgir oportunidade</strong> — Maior aproximação proativa, ganhando visibilidade (sugestão do Vinicius).</div><div class="action-deadline">Recorrente</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Buscar 1 mentor(a) externo(a) a área</strong> — Alguem de produto, dados ou outra BU para perspectiva diferente.</div><div class="action-deadline">Ate: Set/26</div></div></div>
+
+        <p class="action-category cat-10" style="margin-top:18px;">10% — Formação</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Gestao de Stakeholders: Influência e Comunicação (Alura)</strong> — Tecnicas de influência sem hierarquia, gestao de conflitos e reputação.</div><div class="action-deadline">Ago-Set/26</div></div></div>
+      </div>
+    </div>
+
+    <!-- CONFLITOS -->
+    <div class="tab-content" id="tab-3">
+      <div class="card">
+        <div class="pillar-header">
+          <div class="pillar-icon" style="background:var(--amber-light);color:#B45309;">&#9889;</div>
+          <div><div class="pillar-title">Conflitos Produtivos & Sonhar Grande</div><div class="pillar-subtitle">Transformar tensoes em construcao e elevar a ambicao das entregas</div></div>
+        </div>
+        <p class="action-category cat-70">70% — Aprender fazendo</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Práticar "divergir antes de convergir"</strong> — Trazer ao menos 1 contraponto antes de alinhar. Registrar como se sentiu e o resultado.</div><div class="action-deadline">Início: Jul/26 | Prática continua</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Check pre-escalar antes de levantar temas em threads</strong> — Verificar em conversa paralela se o tema já foi endereçado (feedback do Vinicius).</div><div class="action-deadline">Início: Jul/26 | Prática continua</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Propor 1 projeto "moonshot" por semêstre</strong> — Ir alem do incremental. Documentar proposta com business case e apresentar.</div><div class="action-deadline">Primeiro: Out/26</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Se expor a situacoes desconfortaveis intencionalmente</strong> — Negociacoes difíceis, mediação entre áreas, publicos novos. 1x por mês.</div><div class="action-deadline">Recorrente: mensal</div></div></div>
+
+        <p class="action-category cat-20" style="margin-top:18px;">20% — Aprender com outros</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Pedir feedback pontual após discussões difíceis</strong> — "Como você percebeu meu posicionamento?" Anotar padrões.</div><div class="action-deadline">Recorrente</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>1:1 com Evelin Amaral</strong> — Trocar sobre como ela navega conflitos na gerencia comercial.</div><div class="action-deadline">Ate: Ago/26</div></div></div>
+
+        <p class="action-category cat-10" style="margin-top:18px;">10% — Formação</p>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Turning Point: Estrategia, Liderança e Gestao de Mudancas (Coursera for Business / FIA)</strong> — 5 Forças de Porter, VRIO, gestao de mudancas e liderança em transformação.</div><div class="action-deadline">Jan-Fev/27</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleCheck(this)"></div><div><div class="action-text"><strong>Livro: Conversas Cruciais</strong> — Como lidar com conversas difíceis quando as emocoes estao altas e ha muito em jogo.</div><div class="action-deadline">Leitura livre ao longo do ano</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin:0;"></div>
+
+<!-- TRILHA DE CURSOS -->
+<section>
+  <div class="container">
+    <div class="section-label">Formação (10%)</div>
+    <div class="section-title">Trilha de Cursos — 2h/semana</div>
+    <p class="section-desc">5 cursos sequenciais, sem overlap, priorizados por urgencia de desenvolvimento.</p>
+    <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);">
+      <thead><tr style="background:#F0F0F5;">
+        <th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);">#</th>
+        <th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);">Curso</th>
+        <th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);">Plataforma</th>
+        <th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);">Periodo</th>
+        <th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);">Gap que ataca</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;font-weight:700;color:var(--accent);">1</td><td style="padding:10px 14px;"><strong>Product Growth</strong></td><td style="padding:10px 14px;">PM3</td><td style="padding:10px 14px;">Jul-Ago/26</td><td style="padding:10px 14px;">Visão estratégica + sonhar grande</td></tr>
+        <tr style="border-bottom:1px solid var(--border);background:#FAFAFA;"><td style="padding:10px 14px;font-weight:700;color:var(--accent);">2</td><td style="padding:10px 14px;"><strong>Gestao de Stakeholders</strong></td><td style="padding:10px 14px;">Alura</td><td style="padding:10px 14px;">Ago-Set/26</td><td style="padding:10px 14px;">Rede de stakeholders + influência</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;font-weight:700;color:var(--accent);">3</td><td style="padding:10px 14px;"><strong>Liderança Estratégica</strong></td><td style="padding:10px 14px;">Coursera / FIA</td><td style="padding:10px 14px;">Set-Out/26</td><td style="padding:10px 14px;">Visão estratégica + formalizar liderança</td></tr>
+        <tr style="border-bottom:1px solid var(--border);background:#FAFAFA;"><td style="padding:10px 14px;font-weight:700;color:var(--accent);">4</td><td style="padding:10px 14px;"><strong>Liderança e Estrategia de Produtos Digitais</strong></td><td style="padding:10px 14px;">Tera</td><td style="padding:10px 14px;">Nov-Dez/26</td><td style="padding:10px 14px;">Liderança + gestao de pessoas + autonomia</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:700;color:var(--accent);">5</td><td style="padding:10px 14px;"><strong>Turning Point: Gestao de Mudancas</strong></td><td style="padding:10px 14px;">Coursera / FIA</td><td style="padding:10px 14px;">Jan-Fev/27</td><td style="padding:10px 14px;">Conflitos produtivos + gestao de mudancas</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin:0;"></div>
+
+<!-- METRICAS -->
+<section>
+  <div class="container">
+    <div class="section-label">Como medir</div>
+    <div class="section-title">Indicadores de Progresso</div>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;margin-bottom:10px;">Quantitativos</h4>
+        <div style="font-size:12px;line-height:2;">Deep dives apresentados (meta: 9+)<br>Cafes com stakeholders (meta: 9+)<br>Workshops de IA (meta: 8+)<br>Cursos concluidos (meta: 5/5)<br>Playbooks documentados (meta: 3)<br>Dias de operação na ponta (meta: 9+)</div>
+      </div>
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;margin-bottom:10px;">Qualitativos</h4>
+        <div style="font-size:12px;line-height:2;">Monica: "Kevi atua como coordenadora"<br>Stakeholders procuram Kevi para decisoes<br>Posicionamento firme em discussões difíceis<br>Portfolio de 2+ entregas estratégicas<br>Cross-squad com resultados documentados</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ======================== ABA 2: MES A MES ======================== -->
+<div class="main-content" id="main-1">
+<section>
+  <div class="container">
+    <div class="section-label">Checklist mensal</div>
+    <div class="section-title">O que fazer mês a mês</div>
+    <p class="section-desc">Marque o que concluiu. Use o botao "+" para adicionar acoes novas vindas de 1:1s com Monica ou outras orientacoes.</p>
+
+    <div class="month-tabs">
+      <button class="month-tab active" onclick="switchMonth(0)">Jul/26</button>
+      <button class="month-tab" onclick="switchMonth(1)">Ago/26</button>
+      <button class="month-tab" onclick="switchMonth(2)">Set/26</button>
+      <button class="month-tab" onclick="switchMonth(3)">Out/26</button>
+      <button class="month-tab" onclick="switchMonth(4)">Nov/26</button>
+      <button class="month-tab" onclick="switchMonth(5)">Dez/26</button>
+      <button class="month-tab" onclick="switchMonth(6)">Jan/27</button>
+      <button class="month-tab" onclick="switchMonth(7)">Fev/27</button>
+      <button class="month-tab" onclick="switchMonth(8)">Mar/27</button>
+    </div>
+
+    <!-- JUL -->
+    <div class="month-content active" id="month-0">
+      <div class="month-progress"><div class="progress-text">Progresso Jul/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-0"></div></div><div class="progress-label" id="prog-label-0">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Product Growth (PM3) — Início</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Iniciar Product Growth (PM3) — ~2h/semana</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">1o radar estratégico + levar para 1:1 com Monica</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">1o deep dive estratégico e apresentar para gerencia</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">1o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Abrir 1a sessão de troca de conhecimento com o time</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Planejar 1o Workshop de IA (para agosto)</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Revisar mapa de stakeholders (aba 3) — atualizar status e agendar primeiros cafes</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">1o cafe com coordenador de outra área</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Nas apresentações semanais: incluir "o porquê" + 1 recomendação</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">Iniciar pratica "divergir antes de convergir"</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,0)"></div><div><div class="action-text">1 situação de exposição intencional</div></div></div>
+
+        <div id="extra-0"></div>
+        <button class="btn-small" onclick="openAddAction(0)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Radar + deep dive + sessão de troca + mapa atualizado + PM3 iniciado</div>
+      </div>
+    </div>
+
+    <!-- AGO -->
+    <div class="month-content" id="month-1">
+      <div class="month-progress"><div class="progress-text">Progresso Ago/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-1"></div></div><div class="progress-label" id="prog-label-1">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Cursos: PM3 (conclusão) + Gestao de Stakeholders (Alura) — início</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">Concluir Product Growth (PM3)</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">Iniciar Gestao de Stakeholders (Alura)</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">2o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">2o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">2o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">1o Workshop de IA para o time</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">Acompanhar 2-3 reunioes-chave de um coordenador</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">Cafe mensal + voluntariar-se para 1 forum cross-área</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">1:1 com Evelin Amaral sobre navegação de conflitos</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,1)"></div><div><div class="action-text">1 exposição intencional + pedir feedback pontual</div></div></div>
+
+        <div id="extra-1"></div>
+        <button class="btn-small" onclick="openAddAction(1)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: 1o Workshop IA + PM3 concluido + Alura iniciado</div>
+      </div>
+    </div>
+
+    <!-- SET -->
+    <div class="month-content" id="month-2">
+      <div class="month-progress"><div class="progress-text">Progresso Set/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-2"></div></div><div class="progress-label" id="prog-label-2">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Cursos: Alura (conclusão) + Liderança Estratégica (Coursera) — início</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">Concluir Gestao de Stakeholders (Alura)</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">Iniciar Liderança Estratégica (Coursera / FIA)</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">3o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">3o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">3o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">2o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">1o feedback estruturado com Monica</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">Iniciar iniciativa cross-squad</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">Cafe mensal + definir mentor(a) externo(a)</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,2)"></div><div><div class="action-text">1 exposição intencional + feedback pontual</div></div></div>
+
+        <div id="extra-2"></div>
+        <button class="btn-small" onclick="openAddAction(2)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Cross-squad iniciada + mentor(a) + Alura concluido</div>
+      </div>
+    </div>
+
+    <!-- OUT -->
+    <div class="month-content" id="month-3">
+      <div class="month-progress"><div class="progress-text">Progresso Out/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-3"></div></div><div class="progress-label" id="prog-label-3">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Liderança Estratégica (Coursera) — conclusão</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">Concluir Liderança Estratégica (Coursera / FIA)</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">4o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">4o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">4o dia de operação na ponta</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">Entregar "linha do tempo" de evolucoes de SOPs</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">3o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">1o playbook documentado</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">Cafe mensal + revisão trimêstral do mapa</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">Apresentar 1o moonshot com business case</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,3)"></div><div><div class="action-text">1 exposição intencional</div></div></div>
+
+        <div id="extra-3"></div>
+        <button class="btn-small" onclick="openAddAction(3)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Linha do tempo SOPs + 1o moonshot + 1o playbook + Coursera concluido</div>
+      </div>
+    </div>
+
+    <!-- NOV -->
+    <div class="month-content" id="month-4">
+      <div class="month-progress"><div class="progress-text">Progresso Nov/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-4"></div></div><div class="progress-label" id="prog-label-4">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Liderança e Estrategia de Produtos Digitais (Tera) — início</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">Iniciar Tera — Liderança e Estrategia de Produtos Digitais</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">5o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">5o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">5o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">4o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">2o playbook documentado</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">Acompanhar reunioes-chave de outro coordenador (2o trim)</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">Cafe mensal com stakeholder de área nova</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,4)"></div><div><div class="action-text">1 exposição + autoavaliação: padrões nos conflitos?</div></div></div>
+
+        <div id="extra-4"></div>
+        <button class="btn-small" onclick="openAddAction(4)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: 2o playbook + Tera iniciado</div>
+      </div>
+    </div>
+
+    <!-- DEZ -->
+    <div class="month-content" id="month-5">
+      <div class="month-progress"><div class="progress-text">Progresso Dez/26</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-5"></div></div><div class="progress-label" id="prog-label-5">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Tera — conclusão</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">Concluir Tera — Liderança e Estrategia</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">6o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">6o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">6o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">5o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">3o playbook documentado</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">2o feedback estruturado com Monica</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">Cafe mensal + revisão trimêstral do mapa</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,5)"></div><div><div class="action-text">Retrospectiva do semêstre: evolução nos 4 pilares</div></div></div>
+
+        <div id="extra-5"></div>
+        <button class="btn-small" onclick="openAddAction(5)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: 3 playbooks + retrospectiva semêstral + Tera concluido</div>
+      </div>
+    </div>
+
+    <!-- JAN -->
+    <div class="month-content" id="month-6">
+      <div class="month-progress"><div class="progress-text">Progresso Jan/27</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-6"></div></div><div class="progress-label" id="prog-label-6">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Turning Point (Coursera / FIA) — início</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">Iniciar Turning Point (Coursera / FIA)</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">7o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">7o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">7o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">6o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">Avaliar impacto da cross-squad: resultados parciais</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">Cafe mensal + revisão trimêstral + iniciar feedback 360 informal</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,6)"></div><div><div class="action-text">1 exposição intencional + feedback pontual</div></div></div>
+
+        <div id="extra-6"></div>
+        <button class="btn-small" onclick="openAddAction(6)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Feedback 360 informal iniciado + cross-squad com resultados</div>
+      </div>
+    </div>
+
+    <!-- FEV -->
+    <div class="month-content" id="month-7">
+      <div class="month-progress"><div class="progress-text">Progresso Fev/27</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-7"></div></div><div class="progress-label" id="prog-label-7">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Curso: Turning Point (Coursera) — conclusão</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">Concluir Turning Point (Coursera / FIA)</div></div></div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">8o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">8o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">8o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">7o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">Acompanhar reunioes-chave de coordenador (3o trim)</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">Cafe mensal + compilar feedback 360 informal</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,7)"></div><div><div class="action-text">Preparar 2o moonshot com business case</div></div></div>
+
+        <div id="extra-7"></div>
+        <button class="btn-small" onclick="openAddAction(7)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Turning Point concluido + 2o moonshot em preparação</div>
+      </div>
+    </div>
+
+    <!-- MAR -->
+    <div class="month-content" id="month-8">
+      <div class="month-progress"><div class="progress-text">Progresso Mar/27</div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%" id="prog-8"></div></div><div class="progress-label" id="prog-label-8">0%</div></div>
+      <div class="card">
+        <div class="mph mph-curso">&#127891; Mês de consolidação — sem curso novo (foco no portfolio)</div>
+
+        <div class="mph mph-visao">&#127919; Visão Estratégica</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">9o radar estratégico + 1:1</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">9o deep dive estratégico</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">9o dia de operação na ponta</div></div></div>
+
+        <div class="mph mph-liderança">&#128101; Liderança Formal</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">8o Workshop de IA</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">3o feedback estruturado com Monica</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">Fechar cross-squad + documentar impacto</div></div></div>
+
+        <div class="mph mph-influência">&#127760; Influência & Stakeholders</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">Cafe mensal + revisão trimêstral do mapa</div></div></div>
+
+        <div class="mph mph-conflitos">&#9889; Conflitos Produtivos</div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">Apresentar 2o moonshot</div></div></div>
+        <div class="action-item"><div class="action-check" onclick="toggleMonthCheck(this,8)"></div><div><div class="action-text">Montar portfolio de promoção: entregas, feedback 360, evolução nos 4 pilares, cursos</div></div></div>
+
+        <div id="extra-8"></div>
+        <button class="btn-small" onclick="openAddAction(8)">+ Adicionar ação (orientação da 1:1)</button>
+        <div class="month-marco">&#127942; Marco: Cross-squad finalizada + 2o moonshot + portfolio de promoção</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ======================== ABA 3: STAKEHOLDERS ======================== -->
+<div class="main-content" id="main-2">
+<section>
+  <div class="container">
+    <div class="section-label">Gestao de relacionamentos</div>
+    <div class="section-title">Mapa de Stakeholders</div>
+    <p class="section-desc">Seu mapa completo importado + campos para registrar data do ultimo contato e observacoes. Use como referência viva.</p>
+
+    <!-- GRUPO: COMERCIAL -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">Comercial</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-comercial">
+          <tr><td>Rita Matos</td><td>Head Comercial</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>1x a cada 2 meses</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Evelin Amaral</td><td>Gerente Comercial</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>1x a cada 45 dias</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Roberta Ilha</td><td>Coord Comercial</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Kleber Ferreira</td><td>Coord Comercial</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Francieli Sousa</td><td>Coord Comercial</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Veronica Canato</td><td>Coord Comercial</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x no mês</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Thalita Peron</td><td>Coord Self</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO: SOPS -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">SOPs</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-sops">
+          <tr><td>Moacir Alegria</td><td>Head Comercial e SOPs</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Neutro</td><td>1x a cada 2 meses</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Lais Azzolini</td><td>Gerente de SOPs</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Larissa Bueno</td><td>Coord SOPs CS</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x a cada 45 dias</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Guilherme Oliveira</td><td>Coord SOPs iFood</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Ana Monteiro</td><td>Coord Eficiência Comercial</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Neutro</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO: SALES ENABLEMENT -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">Sales Enablement</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-enablement">
+          <tr><td>Martim Cunha</td><td>Gerente</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Neutro</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Erika Gengnagel</td><td>Supervisor Sales Enablement</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO: PRODUTO -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">Produto</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-produto">
+          <tr><td>Gabriela Moreira</td><td>Gerente de Produto</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Michael</td><td>Gerente de Produto</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Bruna Schlosser</td><td>PM Sofia</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Neutro</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>João</td><td>PM Self</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Neutro</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Nicole</td><td>PM Ativação</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Neutro</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Bianca Valverde</td><td>PM Core</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Neutro</td><td>1x no mês</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO: GROWTH / MARKETING -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">Growth / Marketing</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-growth">
+          <tr><td>Guilherme Lopes</td><td>Gerente de Growth</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Neutro</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Yuri Monteiro</td><td>Coord Mkt e Inbound</td><td><span class="stk-tag stk-tag-medio">Medio</span></td><td>Apoiador</td><td>1x a cada 45 dias</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Raquel Schiewaldt</td><td>Analista Senior</td><td><span class="stk-tag stk-tag-baixo">Baixo</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Fernando Coli</td><td>Analista Senior</td><td><span class="stk-tag stk-tag-baixo">Baixo</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRUPO: OUTROS -->
+    <div class="card" style="overflow-x:auto;">
+      <div class="stk-group">Outros</div>
+      <table class="stk-table">
+        <thead><tr><th>Nome</th><th>Nivel</th><th>Influência</th><th>Estrategia</th><th>Frequencia</th><th>Status</th><th>Ultimo contato</th><th>Observacoes</th><th></th></tr></thead>
+        <tbody id="stk-outros">
+          <tr><td>Yuri Sousa</td><td>Coord Self</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td style="color:#B45309;font-weight:600;">Conflito de interesses</td><td>—</td><td>—</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+          <tr><td>Daniele</td><td>Analista Senior</td><td><span class="stk-tag stk-tag-alto">Alto</span></td><td>Apoiador</td><td>1x no mês</td><td>Agendado</td><td><input class="log-input" type="date" style="width:130px;"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn-add" onclick="openStakeholderModal()">+ Adicionar stakeholder</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="margin:0;"></div>
+
+<!-- ORIENTACAO DE RELACIONAMENTO -->
+<section>
+  <div class="container">
+    <div class="section-label">Guia pratico</div>
+    <div class="section-title">Como se relacionar com cada perfil</div>
+    <p class="section-desc">Orientações de abordagem por nivel de influência. Use como referência antes de agendar cafes ou 1:1s.</p>
+
+    <div class="orient-card">
+      <div class="orient-title" style="color:var(--accent);">Influência Alta — Heads e Gerentes</div>
+      <div class="orient-sub">Rita, Evelin, Moacir, Lais, Martim, Gabriela, Michael, Guilherme Lopes</div>
+      <ul class="orient-list">
+        <li><span class="orient-bullet">&#8250;</span><strong>O que falar:</strong> Compartilhe insights estratégicos que você descobriu nos deep dives. Traga dados que eles não viram. Pergunte sobre a visao deles para o próximo trimêstre.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Como abordar:</strong> Seja direta e objetiva — eles têm pouco tempo. Mande mensagem no Slack com 1-2 frases do insight + "podemos trocar 15min sobre isso?". Não precisa ser 1:1 formal.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Assuntos-chave:</strong> Tendências de funil, oportunidades cross-área, resultados de iniciativas que impactam as metas deles, feedback sobre propostas estratégicas.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Frequencia:</strong> Mensal a cada 45 dias. Se tiver algo relevante, pode pingar antes.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Objetivo:</strong> Ser lembrada como alguem que traz valor, não como mais uma reuniao. Eles devem associar "Kevi" a "insight que ajudou a decidir algo".</li>
+      </ul>
+    </div>
+
+    <div class="orient-card">
+      <div class="orient-title" style="color:var(--blue);">Influência Média — Coordenadores e PMs</div>
+      <div class="orient-sub">Roberta, Kleber, Francieli, Veronica, Thalita, Larissa, Guilherme O., Ana, Erika, Bruna, João, Nicole, Bianca, Yuri M.</div>
+      <ul class="orient-list">
+        <li><span class="orient-bullet">&#8250;</span><strong>O que falar:</strong> Alinhe operacionalmente, mas eleve: traga uma análise que impacta a área deles, peça opinião sobre uma proposta, ofereça ajuda com dados que você tem e eles não.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Como abordar:</strong> 1:1 mensal de 20-30min ou cafe informal. Pode ser na volta do almoço. Comece com "vi X no dado e achei que podia te interessar".</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Assuntos-chave:</strong> Resultados específicos da área deles, dados de ativação/funil que conectam com o trabalho deles, trocas de melhores práticas, oportunidades de colaboração.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Frequencia:</strong> Mensal. Mais frequente se houver projeto em andamento junto.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Objetivo:</strong> Ser parceira de construcao. Eles devem pensar "Kevi me ajuda a ver o que estápor tras do numero".</li>
+      </ul>
+    </div>
+
+    <div class="orient-card">
+      <div class="orient-title" style="color:var(--green);">Influência Baixa — Analistas e Pares</div>
+      <div class="orient-sub">Raquel, Fernando, Daniele</div>
+      <ul class="orient-list">
+        <li><span class="orient-bullet">&#8250;</span><strong>O que falar:</strong> Troca técnica, compartilhar metodologias, pedir e dar feedback sobre análises, discutir abordagens diferentes para o mesmo problema.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Como abordar:</strong> Organico — Slack, papo no corredor, sessoes de troca de conhecimento. Funciona bem em grupo também.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Assuntos-chave:</strong> Metodologias de análise, ferramentas, automações, descobertas nos dados, trocas de template e queries.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Frequencia:</strong> Mensal ou sob demanda. Workshops de IA sao otimos para manter esse contato.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Objetivo:</strong> Fortalecer a rede de apoio horizontal. Quem está do seu lado hoje pode ser quem valida sua promoção no feedback 360.</li>
+      </ul>
+    </div>
+
+    <div class="orient-card" style="border-color:var(--amber);border-width:2px;">
+      <div class="orient-title" style="color:#B45309;">Atenção: Conflito de interesses</div>
+      <div class="orient-sub">Yuri Sousa — Coord Self</div>
+      <ul class="orient-list">
+        <li><span class="orient-bullet">&#8250;</span><strong>Abordagem:</strong> Mantenha profissionalismo e foco nos fatos. Traga dados sempre — não opinioes. Evite embates em threads publicas.</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Quando interagir:</strong> Apenas quando necessario para o trabalho. Se tiver tensao, use o "check pre-escalar" (conversa paralela antes de levantar em grupo).</li>
+        <li><span class="orient-bullet">&#8250;</span><strong>Objetivo:</strong> Nao criar atrito, mas não se omitir. Posicione-se com embasamento e sem carga emocional.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    PDI — Kevilyn Berato | Analista SR Planej Comercial &rarr; Coordenadora<br>
+    Construído com base na AvD 26.1 (Brilhou na Entrega) | Horizonte: Jul/26 — Jun/27<br>
+    <em>"Faca um time melhor que você." — Monica Vasconcelos</em>
+  </div>
+</footer>
+
+<!-- MODAL: ADD STAKEHOLDER -->
+<div class="modal-overlay" id="stk-modal">
+  <div class="modal">
+    <h3>Adicionar Stakeholder</h3>
+    <label>Nome</label>
+    <input type="text" id="stk-nome" placeholder="Ex: Roberta Silva">
+    <label>Nivel / Cargo</label>
+    <input type="text" id="stk-nivel" placeholder="Ex: Gerente de Produto">
+    <label>Influência</label>
+    <select id="stk-infl"><option value="Alto">Alto</option><option value="Medio" selected>Medio</option><option value="Baixo">Baixo</option></select>
+    <label>Estrategia</label>
+    <select id="stk-estr"><option value="Apoiador">Apoiador</option><option value="Neutro">Neutro</option><option value="Conflito de interesses">Conflito de interesses</option></select>
+    <label>Frequencia</label>
+    <select id="stk-freq"><option value="1x no mês">1x no mês</option><option value="1x a cada 45 dias">1x a cada 45 dias</option><option value="1x a cada 2 meses">1x a cada 2 meses</option><option value="Sob demanda">Sob demanda</option></select>
+    <label>Grupo</label>
+    <select id="stk-grupo"><option value="stk-comercial">Comercial</option><option value="stk-sops">SOPs</option><option value="stk-enablement">Sales Enablement</option><option value="stk-produto">Produto</option><option value="stk-growth">Growth / Marketing</option><option value="stk-outros">Outros</option></select>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeStakeholderModal()">Cancelar</button>
+      <button class="btn-save" onclick="addStakeholder()">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADD ACTION -->
+<div class="modal-overlay" id="action-modal">
+  <div class="modal">
+    <h3>Adicionar ação ao mês</h3>
+    <label>Quem orientou?</label>
+    <input type="text" id="action-quem" placeholder="Ex: Monica, Evelin, autoidentificado">
+    <label>O que fazer?</label>
+    <textarea id="action-text" rows="3" placeholder="Ex: Apresentar análise de churn para gerência"></textarea>
+    <label>Pilar</label>
+    <select id="action-pilar">
+      <option value="visao">Visão Estratégica</option>
+      <option value="lideranca">Liderança Formal</option>
+      <option value="influencia">Influência & Stakeholders</option>
+      <option value="conflitos">Conflitos Produtivos</option>
+    </select>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeActionModal()">Cancelar</button>
+      <button class="btn-save" onclick="addAction()">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var LS_KEY='pdi_kevi_2026';
+
+// ========== SAVE / LOAD ==========
+function saveAll(){
+  var data={checks:{},monthChecks:{},extraActions:{},stkInputs:{},newStakeholders:[]};
+  // Pillar checks (tab-0..3)
+  for(var t=0;t<4;t++){
+    var el=document.getElementById('tab-'+t);
+    if(!el) continue;
+    var checks=el.querySelectorAll('.action-check');
+    data.checks['tab-'+t]=[];
+    checks.forEach(function(c){data.checks['tab-'+t].push(c.classList.contains('checked'));});
+  }
+  // Month checks (month-0..8)
+  for(var m=0;m<9;m++){
+    var mel=document.getElementById('month-'+m);
+    if(!mel) continue;
+    var mc=mel.querySelectorAll('.action-check');
+    data.monthChecks['month-'+m]=[];
+    mc.forEach(function(c){data.monthChecks['month-'+m].push(c.classList.contains('checked'));});
+  }
+  // Extra actions added via "+"
+  for(var m=0;m<9;m++){
+    var ext=document.getElementById('extra-'+m);
+    if(!ext) continue;
+    var items=ext.querySelectorAll('.action-item');
+    data.extraActions['extra-'+m]=[];
+    items.forEach(function(it){
+      var txt=it.querySelector('.action-text');
+      data.extraActions['extra-'+m].push({html:txt?txt.innerHTML:'',checked:it.querySelector('.action-check').classList.contains('checked')});
+    });
+  }
+  // Stakeholder inputs (dates + notes)
+  var allDateInputs=document.querySelectorAll('#main-2 input[type="date"]');
+  var allTextInputs=document.querySelectorAll('#main-2 input[type="text"]');
+  data.stkInputs.dates=[];
+  allDateInputs.forEach(function(d){data.stkInputs.dates.push(d.value);});
+  data.stkInputs.notes=[];
+  allTextInputs.forEach(function(n){data.stkInputs.notes.push(n.value);});
+  // New stakeholders
+  data.newStakeholders=newStakeholdersList;
+  try{localStorage.setItem(LS_KEY,JSON.stringify(data));}catch(e){}
+}
+
+function loadAll(){
+  var raw;
+  try{raw=localStorage.getItem(LS_KEY);}catch(e){return;}
+  if(!raw) return;
+  var data=JSON.parse(raw);
+  // Pillar checks
+  if(data.checks){
+    for(var key in data.checks){
+      var el=document.getElementById(key);
+      if(!el) continue;
+      var checks=el.querySelectorAll('.action-check');
+      data.checks[key].forEach(function(v,i){
+        if(v && checks[i]){checks[i].classList.add('checked');checks[i].innerHTML='&#10003;';}
+      });
+    }
+  }
+  // New stakeholders (restore before loading inputs)
+  if(data.newStakeholders && data.newStakeholders.length){
+    data.newStakeholders.forEach(function(s){
+      addStakeholderDirect(s.nome,s.nivel,s.infl,s.estr,s.freq,s.grupo);
+    });
+  }
+  // Extra actions
+  if(data.extraActions){
+    for(var key in data.extraActions){
+      var m=parseInt(key.replace('extra-',''));
+      var container=document.getElementById(key);
+      if(!container) continue;
+      data.extraActions[key].forEach(function(a){
+        var div=document.createElement('div');
+        div.className='action-item';
+        div.innerHTML='<div class="action-check" onclick="toggleMonthCheck(this,'+m+')"></div><div><div class="action-text">'+a.html+'</div></div><button class="btn-delete" onclick="this.closest(\'.action-item\').remove();updateMonthProgress('+m+');saveAll();" style="margin-left:auto;">&times;</button>';
+        if(a.checked){var ch=div.querySelector('.action-check');ch.classList.add('checked');ch.innerHTML='&#10003;';}
+        container.appendChild(div);
+      });
+    }
+  }
+  // Month checks (after extras are added)
+  if(data.monthChecks){
+    for(var key in data.monthChecks){
+      var el=document.getElementById(key);
+      if(!el) continue;
+      var checks=el.querySelectorAll('.action-check');
+      data.monthChecks[key].forEach(function(v,i){
+        if(v && checks[i]){checks[i].classList.add('checked');checks[i].innerHTML='&#10003;';}
+      });
+      var mi=parseInt(key.replace('month-',''));
+      updateMonthProgress(mi);
+    }
+  }
+  // Stakeholder inputs
+  if(data.stkInputs){
+    var allDateInputs=document.querySelectorAll('#main-2 input[type="date"]');
+    var allTextInputs=document.querySelectorAll('#main-2 input[type="text"]');
+    if(data.stkInputs.dates) data.stkInputs.dates.forEach(function(v,i){if(allDateInputs[i])allDateInputs[i].value=v;});
+    if(data.stkInputs.notes) data.stkInputs.notes.forEach(function(v,i){if(allTextInputs[i])allTextInputs[i].value=v;});
+  }
+}
+
+// ========== TABS ==========
+function switchMain(i){
+  document.querySelectorAll('.main-tab').forEach(function(t,j){t.classList.toggle('active',j===i);});
+  document.querySelectorAll('.main-content').forEach(function(c,j){c.classList.toggle('active',j===i);});
+}
+function switchTab(i){document.querySelectorAll('.tab').forEach(function(t,j){t.classList.toggle('active',j===i);});document.querySelectorAll('.tab-content').forEach(function(c,j){c.classList.toggle('active',j===i);});}
+function switchMonth(i){document.querySelectorAll('.month-tab').forEach(function(t,j){t.classList.toggle('active',j===i);});document.querySelectorAll('.month-content').forEach(function(c,j){c.classList.toggle('active',j===i);});}
+
+// ========== CHECKS ==========
+function toggleCheck(e){e.classList.toggle('checked');e.innerHTML=e.classList.contains('checked')?'&#10003;':'';saveAll();}
+function toggleMonthCheck(e,m){e.classList.toggle('checked');e.innerHTML=e.classList.contains('checked')?'&#10003;':'';updateMonthProgress(m);saveAll();}
+function updateMonthProgress(m){var c=document.getElementById('month-'+m);if(!c)return;var t=c.querySelectorAll('.action-check').length,d=c.querySelectorAll('.action-check.checked').length,p=t>0?Math.round(d/t*100):0;document.getElementById('prog-'+m).style.width=p+'%';document.getElementById('prog-label-'+m).textContent=p+'%';}
+
+// ========== STAKEHOLDERS ==========
+var newStakeholdersList=[];
+function openStakeholderModal(){document.getElementById('stk-modal').classList.add('show');}
+function closeStakeholderModal(){document.getElementById('stk-modal').classList.remove('show');document.getElementById('stk-nome').value='';document.getElementById('stk-nivel').value='';}
+function addStakeholderDirect(nome,nivel,infl,estr,freq,grupo){
+  var tagClass=infl==='Alto'?'stk-tag-alto':infl==='Medio'?'stk-tag-medio':'stk-tag-baixo';
+  var estrStyle=estr==='Conflito de interesses'?' style="color:#B45309;font-weight:600;"':'';
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td>'+nome+'</td><td>'+nivel+'</td><td><span class="stk-tag '+tagClass+'">'+infl+'</span></td><td'+estrStyle+'>'+estr+'</td><td>'+freq+'</td><td>—</td><td><input class="log-input" type="date" style="width:130px;" onchange="saveAll()"></td><td><input class="log-input" type="text" placeholder="Notas..." style="width:160px;" onchange="saveAll()"></td><td><button class="btn-edit" onclick="editRow(this)" title="Editar">&#9998;</button><button class="btn-delete" onclick="deleteRow(this)" title="Excluir">&times;</button></td>';
+  var tbody=document.getElementById(grupo);
+  if(tbody) tbody.appendChild(tr);
+}
+function addStakeholder(){
+  var nome=document.getElementById('stk-nome').value.trim();
+  var nivel=document.getElementById('stk-nivel').value.trim();
+  var infl=document.getElementById('stk-infl').value;
+  var estr=document.getElementById('stk-estr').value;
+  var freq=document.getElementById('stk-freq').value;
+  var grupo=document.getElementById('stk-grupo').value;
+  if(!nome){alert('Preencha o nome');return;}
+  addStakeholderDirect(nome,nivel,infl,estr,freq,grupo);
+  newStakeholdersList.push({nome:nome,nível:nivel,infl:infl,estr:estr,freq:freq,grupo:grupo});
+  closeStakeholderModal();
+  saveAll();
+}
+function deleteRow(btn){btn.closest('tr').remove();saveAll();}
+
+// ========== ACTIONS ==========
+var currentActionMonth=-1;
+var pilarNames={visao:'Visão Estratégica',lideranca:'Liderança Formal',influencia:'Influência & Stakeholders',conflitos:'Conflitos Produtivos'};
+function openAddAction(m){currentActionMonth=m;document.getElementById('action-modal').classList.add('show');}
+function closeActionModal(){document.getElementById('action-modal').classList.remove('show');document.getElementById('action-text').value='';document.getElementById('action-quem').value='';currentActionMonth=-1;}
+function addAction(){
+  var text=document.getElementById('action-text').value.trim();
+  var quem=document.getElementById('action-quem').value.trim();
+  var pilar=document.getElementById('action-pilar').value;
+  if(!text){alert('Descreva a ação');return;}
+  var container=document.getElementById('extra-'+currentActionMonth);
+  var label=quem?'<span style="font-size:10px;color:var(--text-secondary);margin-left:4px;">('+quem+')</span>':'';
+  var div=document.createElement('div');
+  div.className='action-item';
+  div.innerHTML='<div class="action-check" onclick="toggleMonthCheck(this,'+currentActionMonth+')"></div><div><div class="action-text"><span class="stk-tag" style="font-size:9px;padding:1px 6px;background:var(--accent-light);color:var(--accent);margin-right:4px;">'+pilarNames[pilar]+'</span>'+text+label+'</div></div><button class="btn-delete" onclick="this.closest(\'.action-item\').remove();updateMonthProgress('+currentActionMonth+');saveAll();" style="margin-left:auto;">&times;</button>';
+  container.appendChild(div);
+  closeActionModal();
+  updateMonthProgress(currentActionMonth);
+  saveAll();
+}
+
+// ========== EDIT STAKEHOLDER ==========
+var editingRow=null;
+function editRow(btn){
+  editingRow=btn.closest('tr');
+  var cells=editingRow.querySelectorAll('td');
+  document.getElementById('stk-nome').value=cells[0].textContent.trim();
+  document.getElementById('stk-nivel').value=cells[1].textContent.trim();
+  var inflText=cells[2].textContent.trim();
+  document.getElementById('stk-infl').value=inflText;
+  document.getElementById('stk-estr').value=cells[3].textContent.trim();
+  var freqText=cells[4].textContent.trim();
+  if(freqText==='—') freqText='Sob demanda';
+  document.getElementById('stk-freq').value=freqText;
+  document.getElementById('stk-modal').querySelector('h3').textContent='Editar Stakeholder';
+  document.getElementById('stk-modal').querySelector('.btn-save').textContent='Salvar';
+  document.getElementById('stk-modal').querySelector('.btn-save').setAttribute('onclick','saveEditStakeholder()');
+  document.getElementById('stk-modal').classList.add('show');
+}
+function saveEditStakeholder(){
+  if(!editingRow) return;
+  var nome=document.getElementById('stk-nome').value.trim();
+  var nivel=document.getElementById('stk-nivel').value.trim();
+  var infl=document.getElementById('stk-infl').value;
+  var estr=document.getElementById('stk-estr').value;
+  var freq=document.getElementById('stk-freq').value;
+  if(!nome){alert('Preencha o nome');return;}
+  var cells=editingRow.querySelectorAll('td');
+  cells[0].textContent=nome;
+  cells[1].textContent=nivel;
+  var tagClass=infl==='Alto'?'stk-tag-alto':infl==='Medio'?'stk-tag-medio':'stk-tag-baixo';
+  cells[2].innerHTML='<span class="stk-tag '+tagClass+'">'+infl+'</span>';
+  if(estr==='Conflito de interesses'){cells[3].innerHTML='<span style="color:#B45309;font-weight:600;">'+estr+'</span>';}else{cells[3].textContent=estr;}
+  cells[4].textContent=freq;
+  editingRow=null;
+  closeStakeholderModal();
+  saveAll();
+}
+var origCloseStk=closeStakeholderModal;
+closeStakeholderModal=function(){
+  document.getElementById('stk-modal').classList.remove('show');
+  document.getElementById('stk-nome').value='';
+  document.getElementById('stk-nivel').value='';
+  document.getElementById('stk-modal').querySelector('h3').textContent='Adicionar Stakeholder';
+  document.getElementById('stk-modal').querySelector('.btn-save').textContent='Adicionar';
+  document.getElementById('stk-modal').querySelector('.btn-save').setAttribute('onclick','addStakeholder()');
+  editingRow=null;
+};
+
+// ========== AUTO-SAVE STK INPUTS ==========
+document.querySelectorAll('#main-2 input[type="date"], #main-2 input[type="text"]').forEach(function(inp){
+  inp.addEventListener('change',saveAll);
+});
+
+// ========== MODAL CLOSE ON OVERLAY ==========
+document.querySelectorAll('.modal-overlay').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o)o.classList.remove('show');});});
+
+// ========== LOAD ON START ==========
+document.addEventListener('DOMContentLoaded',loadAll);
+</script>
+</body>
+</html>
