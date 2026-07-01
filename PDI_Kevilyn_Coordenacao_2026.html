@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDI Kevilyn Berato - Coordenacao</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAFA;--surface:#FFF;--text:#1A1A2E;--text2:#5A5A7A;--accent:#EA1D2C;--accentL:#FFF0F1;--accentD:#C4151F;--green:#00A868;--greenL:#E6F9F1;--blue:#3B82F6;--blueL:#EFF6FF;--amber:#F59E0B;--amberL:#FFFBEB;--purple:#8B5CF6;--purpleL:#F3F0FF;--border:#E8E8F0;--shadow:0 1px 3px rgba(0,0,0,.06);--shadowM:0 4px 12px rgba(0,0,0,.08);--r:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.ctn{max-width:960px;margin:0 auto;padding:0 24px}
+.hero{background:linear-gradient(135deg,#1A1A2E,#2D1B4E 50%,#EA1D2C);color:#fff;padding:48px 0 36px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(234,29,44,.15),transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:6px}
+.hero .sub{font-size:16px;font-weight:300;opacity:.85;margin-bottom:20px}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;font-size:12px;opacity:.75}
+@media(max-width:700px){.hero h1{font-size:28px}}
+section{padding:40px 0}
+.sl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.st{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:6px}
+.sd{color:var(--text2);font-size:14px;margin-bottom:28px;max-width:700px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);margin-bottom:14px;transition:box-shadow .2s}
+.card:hover{box-shadow:var(--shadowM)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.g2{grid-template-columns:1fr}}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.sb{text-align:center;padding:16px 10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r)}
+.sb .n{font-size:28px;font-weight:800;color:var(--accent);line-height:1}
+.sb .l{font-size:10px;font-weight:600;color:var(--text2);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+@media(max-width:600px){.sg{grid-template-columns:repeat(2,1fr)}}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;margin:2px 3px 2px 0}
+.tg{background:var(--greenL);color:var(--green)}.ta{background:var(--amberL);color:#B45309}
+.quote{border-left:3px solid var(--accent);padding:10px 16px;margin:10px 0;background:var(--accentL);border-radius:0 8px 8px 0;font-size:13px;font-style:italic}
+.qa{font-style:normal;font-weight:600;font-size:11px;color:var(--accentD);margin-top:4px}
+.divider{height:1px;background:var(--border);margin:40px 0}
+.footer{text-align:center;padding:32px 0;font-size:11px;color:var(--text2);border-top:1px solid var(--border)}
+.mt{display:flex;background:var(--surface);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow);overflow-x:auto}
+.mtb{flex:1;padding:14px 8px;text-align:center;font-size:13px;font-weight:700;cursor:pointer;color:var(--text2);border:none;background:none;transition:all .2s;font-family:inherit;position:relative;white-space:nowrap;min-width:80px}
+.mtb.active{color:var(--accent)}
+.mtb.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--accent);border-radius:3px 3px 0 0}
+.mtb:hover:not(.active){color:var(--text)}
+.mc{display:none}.mc.active{display:block}
+.tabs{display:flex;gap:4px;background:#F0F0F5;border-radius:10px;padding:4px;margin-bottom:20px;overflow-x:auto}
+.tb{padding:9px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .2s;white-space:nowrap;border:none;background:none;font-family:inherit}
+.tb.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.tc{display:none}.tc.active{display:block}
+.mts{display:flex;gap:4px;margin-bottom:20px;overflow-x:auto;padding-bottom:4px}
+.mtbs{padding:9px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);border:1px solid var(--border);background:var(--surface);transition:all .2s;white-space:nowrap;min-width:56px;text-align:center;font-family:inherit}
+.mtbs.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.mtbs:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+.mmc{display:none}.mmc.active{display:block}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.pi{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pt{font-weight:700;font-size:16px}
+.ps{font-size:12px;color:var(--text2)}
+.rb{display:flex;height:7px;border-radius:4px;overflow:hidden;margin:16px 0 10px}
+.r70{width:70%;background:var(--accent)}.r20{width:20%;background:var(--blue)}.r10{width:10%;background:var(--purple)}
+.rl{display:flex;gap:16px;font-size:11px;color:var(--text2);margin-bottom:20px}
+.rl span{display:flex;align-items:center;gap:5px}
+.rd{width:7px;height:7px;border-radius:50%;display:inline-block}
+.ac{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid}
+.c70{color:var(--accent);border-color:var(--accent)}.c20{color:var(--blue);border-color:var(--blue)}.c10{color:var(--purple);border-color:var(--purple)}
+.ai{padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.ai:last-child{border-bottom:none}
+.ck{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:11px}
+.ck.checked{background:var(--green);border-color:var(--green);color:#fff}
+.at{font-size:13px;line-height:1.5}.at strong{font-weight:600}
+.adl{font-size:10px;color:var(--text2);margin-top:3px}
+.mph{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;margin-bottom:6px;margin-top:16px;font-weight:700;font-size:13px}
+.mph:first-of-type{margin-top:0}
+.mv{background:var(--accentL);color:var(--accent)}.ml{background:var(--blueL);color:var(--blue)}.mi{background:var(--purpleL);color:var(--purple)}.mco{background:var(--amberL);color:#B45309}.mcu{background:#F0F0F5;color:var(--text)}
+.mp{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r)}
+.pbg{flex:1;height:8px;background:#F0F0F5;border-radius:4px;overflow:hidden}
+.pf{height:100%;background:var(--green);border-radius:4px;transition:width .3s}
+.plb{font-size:12px;font-weight:700;min-width:36px;text-align:right}
+.ptx{font-size:11px;color:var(--text2)}
+.marco{display:flex;align-items:center;gap:8px;margin-top:16px;padding:10px 14px;background:var(--greenL);border:1px solid #B8EDD4;border-radius:8px;font-size:12px;font-weight:600;color:var(--green)}
+.ib{background:var(--blueL);border:1px solid #BFDBFE;border-radius:8px;padding:14px;margin:10px 0;font-size:12px;line-height:1.6}.ib strong{color:var(--blue)}
+.ba{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s;font-family:inherit}.ba:hover{background:var(--accentD)}
+.bs{padding:6px 12px;font-size:11px;background:#F0F0F5;color:var(--text2);border:1px dashed var(--border);border-radius:8px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;margin-top:14px;font-family:inherit;font-weight:600;width:100%;justify-content:center}.bs:hover{border-color:var(--accent);color:var(--accent);background:var(--accentL)}
+.bd{background:none;border:none;color:#CCC;cursor:pointer;font-size:15px;padding:3px 6px;border-radius:4px;transition:color .2s}.bd:hover{color:var(--accent)}
+.be{background:none;border:none;color:#CCC;cursor:pointer;font-size:13px;padding:3px 6px;border-radius:4px;transition:color .2s}.be:hover{color:var(--blue)}
+.stk{width:100%;border-collapse:collapse;font-size:12px}
+.stk th{text-align:left;padding:9px 10px;background:#F0F0F5;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--border)}
+.stk td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+.stk tr:hover{background:#FAFAFA}
+.st2{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600}
+.sta{background:#FEE2E2;color:#DC2626}.stm{background:var(--amberL);color:#B45309}.stb{background:var(--greenL);color:var(--green)}
+.skg{font-size:12px;font-weight:700;padding:12px 10px 6px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--accentL)}
+.li{padding:5px 8px;border:1px solid var(--border);border-radius:6px;font-size:11px;font-family:inherit;background:var(--bg)}.li:focus{outline:none;border-color:var(--accent)}
+.mo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:100;justify-content:center;align-items:center}.mo.show{display:flex}
+.mod{background:var(--surface);border-radius:var(--r);padding:28px;max-width:500px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto}
+.mod h3{font-size:16px;font-weight:700;margin-bottom:16px}
+.mod label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:5px;margin-top:14px}
+.mod label:first-of-type{margin-top:0}
+.mod input,.mod select,.mod textarea{width:100%;padding:9px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;background:var(--bg)}
+.mod input:focus,.mod select:focus,.mod textarea:focus{outline:none;border-color:var(--accent)}
+.ma{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}
+.ma button{padding:9px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;border:none}
+.bc{background:#F0F0F5;color:var(--text2)}.bsv{background:var(--accent);color:#fff}.bsv:hover{background:var(--accentD)}
+.oc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.ot{font-weight:700;font-size:14px;margin-bottom:4px}
+.os{font-size:11px;color:var(--text2);margin-bottom:10px}
+.ol{list-style:none;padding:0}
+.ol li{padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.ol li:last-child{border-bottom:none}
+.ob{color:var(--accent);font-weight:700;flex-shrink:0}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:12px}
+.proj-card h4{font-size:15px;font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.proj-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.proj-tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--blueL);color:var(--blue)}
+.proj-field{font-size:12px;color:var(--text2);margin-bottom:6px;line-height:1.5}
+.proj-field strong{color:var(--text);font-weight:600}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+.kpi-header{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.kpi-header h4{font-size:14px;font-weight:700}
+.kpi-desc{font-size:12px;color:var(--text2)}
+.kpi-obj{font-size:11px;font-weight:600;color:var(--accent);margin-top:2px}
+.kpi-body{padding:0 20px 20px;display:none}
+.kpi-body.open{display:block}
+.kpi-month{border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:8px}
+.kpi-month-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.kpi-month-label{font-size:12px;font-weight:700;color:var(--accent)}
+.kpi-fields{display:flex;flex-direction:column;gap:8px}
+.kpi-fields label{margin:0;font-size:10px}
+.kpi-fields input,.kpi-fields textarea{font-size:12px;padding:7px 8px}
+.kpi-check-row{display:flex;align-items:center;gap:8px}
+.kpi-check-label{font-size:12px;font-weight:600}
+.kpi-evolucao{display:none}.kpi-evolucao.show{display:block}
+.arrow{transition:transform .2s;font-size:14px}.arrow.open{transform:rotate(180deg)}
+/* MAP */
+.map-wrap{position:relative;width:100%;aspect-ratio:1.35;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:20px}
+.quadrant{position:absolute;width:50%;height:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.q-tl{top:0;left:0;background:rgba(59,130,246,.04)}.q-tr{top:0;right:0;background:rgba(0,168,104,.06)}.q-bl{bottom:0;left:0;background:rgba(100,116,139,.04)}.q-br{bottom:0;right:0;background:rgba(245,158,11,.04)}
+.qlabel{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.18;text-align:center;line-height:1.5;color:var(--text)}
+.axis-x,.axis-y{position:absolute;background:rgba(234,29,44,.12)}
+.axis-x{width:100%;height:1px;top:50%;left:0}.axis-y{width:1px;height:100%;top:0;left:50%}
+.ax-label{position:absolute;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);opacity:.5}
+.ax-interesse{bottom:8px;left:50%;transform:translateX(-50%)}.ax-influencia{left:10px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center}
+.ax-al-x{bottom:8px;right:12px;font-size:8px;opacity:.3}.ax-bx-x{bottom:8px;left:44px;font-size:8px;opacity:.3}.ax-al-y{top:8px;left:12px;font-size:8px;opacity:.3}.ax-bx-y{bottom:8px;left:12px;font-size:8px;opacity:.3}
+.dot{position:absolute;transform:translate(-50%,-50%);cursor:pointer;z-index:10;transition:transform .15s}
+.dot:hover{z-index:100;transform:translate(-50%,-50%) scale(1.15)}
+.dot-c{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);position:relative}
+.sent-promotor .dot-c{border:3px solid var(--green)}.sent-neutro .dot-c{border:3px solid #94A3B8}.sent-promotor-ressalva .dot-c{border:3px dashed var(--green)}
+.si{position:absolute;top:-4px;right:-4px;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;z-index:5;border:1.5px solid var(--surface)}
+.si-p{background:var(--green);color:#fff}.si-n{background:#94A3B8;color:#fff}.si-pr{background:var(--green);color:#fff}
+.dot-lbl{position:absolute;top:40px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:9px;font-weight:500;color:var(--text2);background:rgba(255,255,255,.92);padding:2px 6px;border-radius:4px;opacity:0;transition:opacity .15s;pointer-events:none;border:1px solid var(--border)}
+.dot:hover .dot-lbl{opacity:1}
+.grp-comercial .dot-c{background:#EA1D2C}.grp-sops .dot-c{background:#8B5CF6}.grp-produto .dot-c{background:#00A868}.grp-mkt .dot-c{background:#F59E0B}
+.map-legend{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:20px;font-size:11px;color:var(--text2)}
+.ml-section{display:flex;gap:12px;align-items:center}
+.ml-title{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;color:var(--text2);margin-right:2px}
+.ml-item{display:flex;align-items:center;gap:5px}
+.ml-dot{width:11px;height:11px;border-radius:50%}
+.ml-ring{width:13px;height:13px;border-radius:50%;background:transparent}
+.ml-ring-p{border:3px solid var(--green)}.ml-ring-n{border:3px solid #94A3B8}
+.mtooltip{display:none;position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:12px;color:var(--text);max-width:300px;z-index:200;box-shadow:var(--shadowM);line-height:1.5}
+.mtooltip .tt-n{font-weight:700;font-size:14px;margin-bottom:2px}.mtooltip .tt-r{font-size:11px;color:var(--text2);margin-bottom:8px}
+.mtooltip .tt-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.mtooltip .tt-b{font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600}
+.ttb-gerenciar{background:var(--greenL);color:var(--green)}.ttb-satisfeito{background:var(--blueL);color:var(--blue)}.ttb-informado{background:var(--amberL);color:#B45309}.ttb-monitorar{background:#F0F0F5;color:var(--text2)}
+.ttb-promotor{background:var(--greenL);color:var(--green)}.ttb-neutro{background:#F0F0F5;color:var(--text2)}.ttb-promotor-ressalva{background:var(--greenL);color:var(--green)}
+/* SIDE PANEL */
+.stk-layout{display:grid;grid-template-columns:1fr 340px;gap:20px}
+@media(max-width:900px){.stk-layout{grid-template-columns:1fr}}
+.side-panel{position:sticky;top:70px;align-self:start}
+.sp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.sp-card h4{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.sp-tip{font-size:11px;line-height:1.6;color:var(--text2);margin-bottom:6px}
+.sp-tip strong{color:var(--text);font-weight:600}
+.sp-divider{height:1px;background:var(--border);margin:8px 0}
+.sp-name{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="ctn">
+<div class="hero-badge">Plano de Desenvolvimento Individual</div>
+<h1>De Senior a Coordenadora</h1>
+<p class="sub">Kevilyn Berato — Planejamento Comercial, Anota Aí (iFood)</p>
+<div class="hero-meta"><span>Horizonte: 12 meses (Jul/26 — Jun/27)</span><span>Avaliação: Brilhou na Entrega</span><span>Grade: 10</span></div>
+</div></header>
+
+<nav class="mt">
+<button class="mtb active" onclick="switchMain(0)">Resumo</button>
+<button class="mtb" onclick="switchMain(1)">Mês a Mês</button>
+<button class="mtb" onclick="switchMain(2)">Stakeholders</button>
+<button class="mtb" onclick="switchMain(3)">Projetos</button>
+<button class="mtb" onclick="switchMain(4)">Painel de Metas</button>
+</nav>
+
+<!-- ===== ABA 1: RESUMO ===== -->
+<div class="mc active" id="main-0">
+<section><div class="ctn">
+<div class="sl">Ponto de partida</div><div class="st">Retrato da AvD 26.1</div>
+<p class="sd">Sua avaliação 360 revela uma profissional que já exerce liderança informal com excelência técnica reconhecida por todos os avaliadores. O caminho para coordenação passa por formalizar essa influência e elevar o olhar estratégico.</p>
+<div class="sg">
+<div class="sb"><div class="n">4.0</div><div class="l">Cultura</div></div>
+<div class="sb"><div class="n">4.0</div><div class="l">Performance</div></div>
+<div class="sb"><div class="n">3.95</div><div class="l">Média Geral</div></div>
+<div class="sb"><div class="n">12</div><div class="l">Avaliadores</div></div>
+</div>
+<div class="g2">
+<div class="card"><h3 style="font-size:14px;font-weight:700;margin-bottom:10px;color:var(--green)">Forças reconhecidas</h3>
+<span class="tag tg">Referência técnica</span><span class="tag tg">Ambidestria / IA</span><span class="tag tg">Protagonismo</span><span class="tag tg">Storytelling</span><span class="tag tg">Mentalidade de dono</span><span class="tag tg">Parceria com comercial</span><span class="tag tg">Buddy dos pares</span><span class="tag tg">Comunicação executiva</span></div>
+<div class="card"><h3 style="font-size:14px;font-weight:700;margin-bottom:10px;color:var(--amber)">Gaps para coordenação</h3>
+<span class="tag ta">Visão estratégica médio/longo prazo</span><span class="tag ta">Conflitos produtivos</span><span class="tag ta">Rede de stakeholders</span><span class="tag ta">Formalizar liderança</span><span class="tag ta">Proximidade com a ponta</span><span class="tag ta">Sonhar grande</span></div>
+</div>
+<div style="margin-top:20px"><h3 style="font-size:14px;font-weight:700;margin-bottom:10px">Vozes que importam</h3>
+<div class="quote">"Comece a puxar o estratégico de médio e longo prazo com mais intencionalidade. Você já domina o operacional — agora é hora de fazer as perguntas que ninguém está fazendo."<div class="qa">Monica Vasconcelos — Liderança Direta</div></div>
+<div class="quote">"Você já está muito acima do esperado para senior! Seria muito bacana se você começasse a estruturar e formalizar essa liderança que já exerce de forma natural."<div class="qa">Matheus Santos — Par (Analista SR BI)</div></div>
+<div class="quote">"Continue criando e participando ativamente dessas agendas, tornando a comunicação entre times cada vez mais fluida e transparente."<div class="qa">Kleber Ferreira — Coord Comercial</div></div>
+</div>
+</div></section>
+<div class="divider" style="margin:0"></div>
+
+<!-- PILARES -->
+<section><div class="ctn">
+<div class="sl">Estratégia de desenvolvimento</div><div class="st">4 Pilares para a Coordenação</div>
+<p class="sd">Cada pilar foi derivado dos feedbacks e organizado no modelo 70/20/10. Dedicação de ~2h semanais para cursos.</p>
+<div class="rb"><div class="r70"></div><div class="r20"></div><div class="r10"></div></div>
+<div class="rl"><span><span class="rd" style="background:var(--accent)"></span> 70% On-the-job</span><span><span class="rd" style="background:var(--blue)"></span> 20% Social Learning</span><span><span class="rd" style="background:var(--purple)"></span> 10% Formal</span></div>
+<div class="tabs">
+<button class="tb active" onclick="switchTab(0)">Visão Estratégica</button>
+<button class="tb" onclick="switchTab(1)">Liderança Formal</button>
+<button class="tb" onclick="switchTab(2)">Influência & Stakeholders</button>
+<button class="tb" onclick="switchTab(3)">Conflitos Produtivos</button>
+</div>
+
+<div class="tc active" id="tab-0"><div class="card">
+<div class="ph"><div class="pi" style="background:var(--accentL);color:var(--accent)">&#127919;</div><div><div class="pt">Visão Estratégica de Médio e Longo Prazo</div><div class="ps">Fazer as perguntas que ninguém está fazendo e antecipar oportunidades</div></div></div>
+<p class="ac c70">70% — Aprender fazendo</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Criar um "radar estratégico" mensal</strong> — Reservar 2h/mês para mapear oportunidades e riscos não óbvios na esteira de leads. Documentar em 1 página e levar para 1:1 com Monica.</div><div class="adl">Início: Jul/26 | Recorrente: mensal</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Liderar 1 deep dive estratégico por mês</strong> — Temas não óbvios: conversão por perfil de lead, sazonalidade em ativação, correlação setup vs churn. Apresentar para gerência com recomendação de ação.</div><div class="adl">Primeiro: Jul/26 | Recorrente: mensal</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Acompanhar 1 dia de operação por mês</strong> — Vivenciar as dores da ponta para conectar dado ao que o time vive na prática (sugestão da Francieli).</div><div class="adl">Início: Jul/26 | Recorrente: mensal</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Construir a "linha do tempo" de evoluções de SOPs</strong> — Documentar mudanças, impactos e lições aprendidas. Ser a guardiã da memória institucional da área (sugestão da Thalita).</div><div class="adl">Entrega: Out/26</div></div></div>
+<p class="ac c20" style="margin-top:18px">20% — Aprender com outros</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Agendar 1 café mensal com coordenadores de outras áreas</strong> — Produto, Growth, Marketing, BI. Objetivo: entender dores e como planejamento comercial pode gerar mais valor.</div><div class="adl">Início: Jul/26 | Recorrente</div></div></div>
+<p class="ac c10" style="margin-top:18px">10% — Formação</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Product Growth (PM3)</strong> — Estratégias de growth, product-led growth, experimentação e métricas de crescimento.</div><div class="adl">Jul-Ago/26</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Liderança Estratégica (Coursera for Business / FIA)</strong> — Papel do líder no processo estratégico, como conduzir times para resultados superiores.</div><div class="adl">Set-Out/26</div></div></div>
+</div></div>
+
+<div class="tc" id="tab-1"><div class="card">
+<div class="ph"><div class="pi" style="background:var(--blueL);color:var(--blue)">&#128101;</div><div><div class="pt">Formalização da Liderança</div><div class="ps">Transformar liderança natural em liderança intencional e estruturada</div></div></div>
+<p class="ac c70">70% — Aprender fazendo</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Abrir sessões de troca de conhecimento com o time</strong> — Convites abertos: "Quer trocar sobre X?". Começar com temas de IA e análises avançadas. Se houver interesse, evoluir organicamente.</div><div class="adl">Início: Jul/26 | Formato flexível</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Criar e facilitar "Workshop de IA" mensal</strong> — Compartilhar conhecimento sobre agents, automações, prompts. Abrir para o time comercial (sugestão da Monica).</div><div class="adl">Primeiro: Ago/26 | Recorrente: mensal</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Assumir a liderança de 1 iniciativa cross-squad</strong> — Projeto que envolva mais de uma squad. Coordenar timelines, responsáveis e entregas.</div><div class="adl">Início: Set/26</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Documentar processos-chave e criar playbooks</strong> — Reduzir dependência da sua referência. Criar documentação que permita ao time operar com autonomia.</div><div class="adl">3 playbooks até: Dez/26</div></div></div>
+<p class="ac c20" style="margin-top:18px">20% — Aprender com outros</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Pedir feedback estruturado trimestral à Monica</strong> — "Em que situação eu agi como coordenadora? Onde voltei para o operacional?"</div><div class="adl">Rodadas: Set/26, Dez/26, Mar/27</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Acompanhar 2-3 reuniões-chave de um coordenador por trimestre</strong> — Observar como gerenciam conflitos, priorizam e tomam decisão na prática.</div><div class="adl">Primeiro: Ago/26</div></div></div>
+<p class="ac c10" style="margin-top:18px">10% — Formação</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Liderança e Estratégia de Produtos Digitais (Tera)</strong> — Facilitação, gestão de stakeholders, gestão de pessoas, autonomia e influência.</div><div class="adl">Nov-Dez/26</div></div></div>
+</div></div>
+
+<div class="tc" id="tab-2"><div class="card">
+<div class="ph"><div class="pi" style="background:var(--purpleL);color:var(--purple)">&#127760;</div><div><div class="pt">Influência & Gestão de Stakeholders</div><div class="ps">Ampliar rede além do comercial e construir reputação cross-funcional</div></div></div>
+<p class="ac c70">70% — Aprender fazendo</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Manter mapa de stakeholders atualizado</strong> — Veja a aba "Stakeholders" para acompanhar contatos, temas e registrar conversas.</div><div class="adl">Revisão: trimestral</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Participar ativamente de 1 fórum/comitê cross-área</strong> — Representar SOPs Inbound em discussões com produto, growth ou marketing.</div><div class="adl">Início: Ago/26</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Elevar a narrativa nas apresentações semanais</strong> — Você já apresenta. Próximo nível: trazer "o porquê" dos números, antecipar perguntas e incluir recomendações estratégicas.</div><div class="adl">Prática contínua a partir de Jul/26</div></div></div>
+<p class="ac c20" style="margin-top:18px">20% — Aprender com outros</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Cobrir agendas de liderança comercial quando surgir oportunidade</strong> — Maior aproximação proativa, ganhando visibilidade (sugestão do Vinicius).</div><div class="adl">Recorrente</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Buscar 1 mentor(a) externo(a) à área</strong> — Alguém de produto, dados ou outra BU para perspectiva diferente.</div><div class="adl">Até: Set/26</div></div></div>
+<p class="ac c10" style="margin-top:18px">10% — Formação</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Gestão de Stakeholders: Influência e Comunicação (Alura)</strong> — Técnicas de influência sem hierarquia, gestão de conflitos e reputação.</div><div class="adl">Ago-Set/26</div></div></div>
+</div></div>
+
+<div class="tc" id="tab-3"><div class="card">
+<div class="ph"><div class="pi" style="background:var(--amberL);color:#B45309">&#9889;</div><div><div class="pt">Conflitos Produtivos & Sonhar Grande</div><div class="ps">Transformar tensões em construção e elevar a ambição das entregas</div></div></div>
+<p class="ac c70">70% — Aprender fazendo</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Praticar "divergir antes de convergir"</strong> — Trazer ao menos 1 contraponto antes de alinhar. Registrar como se sentiu e o resultado.</div><div class="adl">Início: Jul/26 | Prática contínua</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Check pré-escalar antes de levantar temas em threads</strong> — Verificar em conversa paralela se o tema já foi endereçado (feedback do Vinicius).</div><div class="adl">Início: Jul/26 | Prática contínua</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Propor 1 projeto "moonshot" por semestre</strong> — Ir além do incremental. Documentar proposta com business case e apresentar.</div><div class="adl">Primeiro: Out/26</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Se expor a situações desconfortáveis intencionalmente</strong> — Negociações difíceis, mediação entre áreas, públicos novos. 1x por mês.</div><div class="adl">Recorrente: mensal</div></div></div>
+<p class="ac c20" style="margin-top:18px">20% — Aprender com outros</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Pedir feedback pontual após discussões difíceis</strong> — "Como você percebeu meu posicionamento?" Anotar padrões.</div><div class="adl">Recorrente</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>1:1 com Evelin Amaral</strong> — Trocar sobre como ela navega conflitos na gerência comercial.</div><div class="adl">Até: Ago/26</div></div></div>
+<p class="ac c10" style="margin-top:18px">10% — Formação</p>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Turning Point: Estratégia, Liderança e Gestão de Mudanças (Coursera for Business / FIA)</strong> — 5 Forças de Porter, VRIO, gestão de mudanças e liderança em transformação.</div><div class="adl">Jan-Fev/27</div></div></div>
+<div class="ai"><div class="ck" onclick="toggleCheck(this)"></div><div><div class="at"><strong>Livro: Conversas Cruciais</strong> — Como lidar com conversas difíceis quando as emoções estão altas e há muito em jogo.</div><div class="adl">Leitura livre ao longo do ano</div></div></div>
+</div></div>
+</div></section>
+<div class="divider" style="margin:0"></div>
+
+<!-- CURSOS -->
+<section><div class="ctn">
+<div class="sl">Formação (10%)</div><div class="st">Trilha de Cursos — 2h/semana</div>
+<p class="sd">5 cursos sequenciais, sem overlap, priorizados por urgência de desenvolvimento.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;background:var(--surface);border-radius:var(--r);overflow:hidden;border:1px solid var(--border)">
+<thead><tr style="background:#F0F0F5"><th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)">#</th><th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)">Curso</th><th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)">Plataforma</th><th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)">Período</th><th style="padding:12px 14px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)">Gap</th></tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:700;color:var(--accent)">1</td><td style="padding:10px 14px"><strong>Product Growth</strong></td><td style="padding:10px 14px">PM3</td><td style="padding:10px 14px">Jul-Ago/26</td><td style="padding:10px 14px">Visão estratégica + sonhar grande</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:#FAFAFA"><td style="padding:10px 14px;font-weight:700;color:var(--accent)">2</td><td style="padding:10px 14px"><strong>Gestão de Stakeholders</strong></td><td style="padding:10px 14px">Alura</td><td style="padding:10px 14px">Ago-Set/26</td><td style="padding:10px 14px">Rede + influência</td></tr>
+<tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 14px;font-weight:700;color:var(--accent)">3</td><td style="padding:10px 14px"><strong>Liderança Estratégica</strong></td><td style="padding:10px 14px">Coursera / FIA</td><td style="padding:10px 14px">Set-Out/26</td><td style="padding:10px 14px">Visão + liderança formal</td></tr>
+<tr style="border-bottom:1px solid var(--border);background:#FAFAFA"><td style="padding:10px 14px;font-weight:700;color:var(--accent)">4</td><td style="padding:10px 14px"><strong>Liderança e Estratégia de Produtos Digitais</strong></td><td style="padding:10px 14px">Tera</td><td style="padding:10px 14px">Nov-Dez/26</td><td style="padding:10px 14px">Liderança + gestão de pessoas</td></tr>
+<tr><td style="padding:10px 14px;font-weight:700;color:var(--accent)">5</td><td style="padding:10px 14px"><strong>Turning Point: Gestão de Mudanças</strong></td><td style="padding:10px 14px">Coursera / FIA</td><td style="padding:10px 14px">Jan-Fev/27</td><td style="padding:10px 14px">Conflitos + mudanças</td></tr>
+</tbody></table></div>
+</div></section>
+<div class="divider" style="margin:0"></div>
+
+<!-- MÉTRICAS -->
+<section><div class="ctn">
+<div class="sl">Como medir</div><div class="st">Indicadores de Progresso</div>
+<div class="g2">
+<div class="card"><h4 style="font-size:13px;font-weight:700;margin-bottom:10px">Quantitativos</h4><div style="font-size:12px;line-height:2">Deep dives apresentados (meta: 9+)<br>Cafés com stakeholders (meta: 9+)<br>Workshops de IA (meta: 8+)<br>Cursos concluídos (meta: 5/5)<br>Playbooks documentados (meta: 3)<br>Dias de operação na ponta (meta: 9+)</div></div>
+<div class="card"><h4 style="font-size:13px;font-weight:700;margin-bottom:10px">Qualitativos</h4><div style="font-size:12px;line-height:2">Monica: "Kevi atua como coordenadora"<br>Stakeholders procuram Kevi para decisões<br>Posicionamento firme em discussões difíceis<br>Portfólio de 2+ entregas estratégicas<br>Cross-squad com resultados documentados</div></div>
+</div>
+</div></section>
+</div>
+
+<!-- ===== ABA 2: MÊS A MÊS ===== -->
+<div class="mc" id="main-1">
+<section><div class="ctn">
+<div class="sl">Checklist mensal</div><div class="st">O que fazer mês a mês</div>
+<p class="sd">Marque o que concluiu. Use o botão "+" para adicionar ações novas vindas de 1:1s.</p>
+<div class="mts" id="month-tabs"></div>
+<div id="month-container"></div>
+</div></section>
+</div>
+
+<!-- ===== ABA 3: STAKEHOLDERS ===== -->
+<div class="mc" id="main-2">
+<section><div class="ctn">
+<div class="sl">Gestão de relacionamentos</div><div class="st">Mapa de Stakeholders — Influência x Interesse</div>
+<p class="sd">Passe o mouse sobre cada pessoa para ver detalhes. Clique na tabela abaixo para editar, adicionar observações ou registrar contatos.</p>
+
+<div class="map-wrap" id="stk-map">
+<div class="quadrant q-tl"><span class="qlabel">Manter<br>Satisfeito</span></div>
+<div class="quadrant q-tr"><span class="qlabel">Gerenciar<br>de Perto</span></div>
+<div class="quadrant q-bl"><span class="qlabel">Monitorar</span></div>
+<div class="quadrant q-br"><span class="qlabel">Manter<br>Informado</span></div>
+<div class="axis-x"></div><div class="axis-y"></div>
+<span class="ax-label ax-interesse">INTERESSE</span>
+<span class="ax-label ax-influencia">INFLUENCIA</span>
+<span class="ax-label ax-al-x">ALTO</span><span class="ax-label ax-bx-x">BAIXO</span>
+<span class="ax-label ax-al-y">ALTO</span><span class="ax-label ax-bx-y">BAIXO</span>
+</div>
+
+<div class="map-legend">
+<div class="ml-section"><span class="ml-title">Área:</span>
+<div class="ml-item"><div class="ml-dot" style="background:#EA1D2C"></div>Comercial</div>
+<div class="ml-item"><div class="ml-dot" style="background:#8B5CF6"></div>SOPs</div>
+<div class="ml-item"><div class="ml-dot" style="background:#00A868"></div>Produto</div>
+<div class="ml-item"><div class="ml-dot" style="background:#F59E0B"></div>Mkt / Análises</div>
+</div>
+<div class="ml-section"><span class="ml-title">Postura:</span>
+<div class="ml-item"><div class="ml-ring ml-ring-p"></div>Promotor</div>
+<div class="ml-item"><div class="ml-ring ml-ring-n"></div>Neutro</div>
+</div>
+</div>
+
+<div class="stk-layout">
+<div>
+<div id="stk-container"></div>
+<div style="text-align:center;margin-top:16px"><button class="ba" onclick="openStkModal()">+ Adicionar stakeholder</button></div>
+</div>
+
+<div class="side-panel" id="side-panel">
+<div class="sp-card"><h4 style="color:var(--accent)">&#128161; Sugestão de contato estratégico</h4>
+<p class="sp-tip">Clique em um stakeholder na tabela ou no mapa para ver sugestões personalizadas de como se aproximar.</p>
+<div id="sp-content">
+<div class="sp-divider"></div>
+<div class="sp-tip"><strong>Dica geral para alta liderança:</strong> Não marque reunião sem pauta. Mande um ping no Slack com 1-2 frases do insight que você quer compartilhar + "podemos trocar 15min?". Traga dados que eles não viram. Pergunte sobre a visão deles para o próximo trimestre.</div>
+<div class="sp-divider"></div>
+<div class="sp-tip"><strong>Coordenadores e PMs:</strong> Comece com "vi X no dado e achei que podia te interessar". 1:1 mensal de 20-30min ou café informal. Ofereça ajuda com dados.</div>
+<div class="sp-divider"></div>
+<div class="sp-tip"><strong>Pares e analistas:</strong> Troca técnica orgânica — Slack, sessões de troca, papo no corredor. Quem está do seu lado hoje valida sua promoção no 360.</div>
+</div>
+</div>
+
+<div class="sp-card"><h4 style="color:#B45309">&#9888; Conflito de interesses</h4>
+<p class="sp-tip"><strong>Yuri Sousa — Coord Self</strong></p>
+<p class="sp-tip">Profissionalismo e foco nos fatos. Traga dados sempre — não opiniões. Evite embates em threads públicas. Use o "check pré-escalar". Posicione-se com embasamento.</p>
+</div>
+</div>
+</div>
+
+</div></section>
+<div class="mtooltip" id="mtooltip"></div>
+</div>
+
+<!-- ===== ABA 4: PROJETOS ===== -->
+<div class="mc" id="main-3">
+<section><div class="ctn">
+<div class="sl">Iniciativas estratégicas</div><div class="st">Projetos</div>
+<p class="sd">Registre projetos estratégicos que você está liderando ou participando. Acompanhe áreas envolvidas, objetivos e impacto.</p>
+<div id="proj-container"></div>
+<div style="text-align:center;margin-top:16px"><button class="ba" onclick="openProjModal()">+ Adicionar projeto</button></div>
+</div></section>
+</div>
+
+<!-- ===== ABA 5: PAINEL DE METAS ===== -->
+<div class="mc" id="main-4">
+<section><div class="ctn">
+<div class="sl">Acompanhamento</div><div class="st">Painel de Metas</div>
+<p class="sd">Acompanhe seus KPIs mês a mês. Marque a evolução e registre o que conquistou em cada frente.</p>
+<div id="kpi-container"></div>
+<div style="text-align:center;margin-top:16px"><button class="ba" onclick="openKpiModal()">+ Adicionar KPI</button></div>
+</div></section>
+</div>
+
+<footer class="footer"><div class="ctn">
+PDI — Kevilyn Berato | Analista SR Planej Comercial &rarr; Coordenadora<br>
+Construído com base na AvD 26.1 (Brilhou na Entrega) | Horizonte: Jul/26 — Jun/27<br>
+<em>"Faça um time melhor que você." — Monica Vasconcelos</em>
+</div></footer>
+
+<!-- MODALS -->
+<div class="mo" id="stk-modal"><div class="mod">
+<h3 id="stk-modal-title">Adicionar Stakeholder</h3>
+<label>Nome</label><input type="text" id="sm-nome">
+<label>Cargo</label><input type="text" id="sm-nivel">
+<label>Quadrante</label><select id="sm-quad"><option value="gerenciar">Gerenciar de Perto</option><option value="satisfeito">Manter Satisfeito</option><option value="informado" selected>Manter Informado</option><option value="monitorar">Monitorar</option></select>
+<label>Postura</label><select id="sm-sent"><option value="promotor">Promotor</option><option value="neutro" selected>Neutro</option><option value="promotor-ressalva">Promotor com ressalva</option></select>
+<label>Frequência</label><select id="sm-freq"><option value="1x no mês">1x no mês</option><option value="1x a cada 45 dias">1x a cada 45 dias</option><option value="1x a cada 2 meses">1x a cada 2 meses</option><option value="Sob demanda" selected>Sob demanda</option></select>
+<label>Área</label><select id="sm-grp"><option value="comercial">Comercial</option><option value="sops">SOPs</option><option value="produto">Produto</option><option value="mkt">Mkt / Análises</option></select>
+<label>Estratégia de engajamento</label><input type="text" id="sm-estr" placeholder="Ex: Manter informada sobre resultados...">
+<label>Dica de contato (como abordar, o que falar)</label><textarea id="sm-dica" rows="3" placeholder="Ex: Café mensal, traga dados que ela não viu..."></textarea>
+<div class="ma"><button class="bc" onclick="closeStkModal()">Cancelar</button><button class="bsv" id="stk-modal-btn" onclick="saveStkModal()">Adicionar</button></div>
+</div></div>
+
+<div class="mo" id="action-modal"><div class="mod">
+<h3>Adicionar ação ao mês</h3>
+<label>Quem orientou?</label><input type="text" id="am-quem" placeholder="Ex: Monica, Evelin">
+<label>O que fazer?</label><textarea id="am-text" rows="3"></textarea>
+<label>Pilar</label><select id="am-pilar"><option value="visao">Visão Estratégica</option><option value="lideranca">Liderança Formal</option><option value="influencia">Influência & Stakeholders</option><option value="conflitos">Conflitos Produtivos</option></select>
+<div class="ma"><button class="bc" onclick="closeActionModal()">Cancelar</button><button class="bsv" onclick="saveActionModal()">Adicionar</button></div>
+</div></div>
+
+<div class="mo" id="proj-modal"><div class="mod">
+<h3 id="proj-modal-title">Adicionar Projeto</h3>
+<label>Nome do Projeto</label><input type="text" id="pm-nome">
+<label>Descrição</label><textarea id="pm-desc" rows="2"></textarea>
+<label>Data de Início</label><input type="date" id="pm-data">
+<label>Áreas Envolvidas</label><input type="text" id="pm-areas" placeholder="Ex: Produto, Growth, Comercial">
+<label>Objetivo</label><textarea id="pm-obj" rows="2"></textarea>
+<label>Impacto Esperado</label><textarea id="pm-imp" rows="2"></textarea>
+<div class="ma"><button class="bc" onclick="closeProjModal()">Cancelar</button><button class="bsv" id="proj-modal-btn" onclick="saveProjModal()">Adicionar</button></div>
+</div></div>
+
+<div class="mo" id="kpi-modal"><div class="mod">
+<h3>Adicionar KPI</h3>
+<label>Nome do KPI</label><input type="text" id="km-nome">
+<label>Descrição</label><textarea id="km-desc" rows="2"></textarea>
+<label>Objetivo / Meta</label><input type="text" id="km-obj" placeholder="Ex: 1 por mês (9 no ano)">
+<div class="ma"><button class="bc" onclick="closeKpiModal()">Cancelar</button><button class="bsv" onclick="saveKpiModal()">Adicionar</button></div>
+</div></div>
+
+<script>
+var LS='pdi_kevi_v3';
+var MONTHS=['Jul/26','Ago/26','Set/26','Out/26','Nov/26','Dez/26','Jan/27','Fev/27','Mar/27'];
+var MONTH_DATA=[
+{curso:'Curso: Product Growth (PM3) — Início',items:[
+{p:'mv',t:'1º radar estratégico + levar para 1:1 com Monica'},
+{p:'mv',t:'1º deep dive estratégico e apresentar para gerência'},
+{p:'mv',t:'1º dia de operação na ponta'},
+{p:'ml',t:'Abrir 1ª sessão de troca de conhecimento com o time'},
+{p:'ml',t:'Planejar 1º Workshop de IA (para agosto)'},
+{p:'mi',t:'Revisar mapa de stakeholders — atualizar status e agendar cafés'},
+{p:'mi',t:'1º café com coordenador de outra área'},
+{p:'mi',t:'Nas apresentações semanais: incluir "o porquê" + 1 recomendação'},
+{p:'mco',t:'Iniciar prática "divergir antes de convergir"'},
+{p:'mco',t:'1 situação de exposição intencional'}],
+marco:'Radar + deep dive + sessão de troca + mapa atualizado + PM3 iniciado'},
+{curso:'Cursos: PM3 (conclusão) + Gestão de Stakeholders (Alura) — início',items:[
+{p:'mv',t:'2º radar estratégico + 1:1'},{p:'mv',t:'2º deep dive estratégico'},{p:'mv',t:'2º dia de operação na ponta'},
+{p:'ml',t:'1º Workshop de IA para o time'},{p:'ml',t:'Acompanhar 2-3 reuniões-chave de um coordenador'},
+{p:'mi',t:'Café mensal + voluntariar-se para 1 fórum cross-área'},
+{p:'mco',t:'1:1 com Evelin Amaral sobre navegação de conflitos'},{p:'mco',t:'1 exposição intencional + pedir feedback pontual'}],
+marco:'1º Workshop IA + PM3 concluído + Alura iniciado'},
+{curso:'Cursos: Alura (conclusão) + Liderança Estratégica (Coursera) — início',items:[
+{p:'mv',t:'3º radar estratégico + 1:1'},{p:'mv',t:'3º deep dive estratégico'},{p:'mv',t:'3º dia de operação na ponta'},
+{p:'ml',t:'2º Workshop de IA'},{p:'ml',t:'1º feedback estruturado com Monica'},{p:'ml',t:'Iniciar iniciativa cross-squad'},
+{p:'mi',t:'Café mensal + definir mentor(a) externo(a)'},
+{p:'mco',t:'1 exposição intencional + feedback pontual'}],
+marco:'Cross-squad iniciada + mentor(a) + Alura concluído'},
+{curso:'Curso: Liderança Estratégica (Coursera) — conclusão',items:[
+{p:'mv',t:'4º radar estratégico + 1:1'},{p:'mv',t:'4º deep dive estratégico'},{p:'mv',t:'4º dia de operação na ponta'},{p:'mv',t:'Entregar "linha do tempo" de evoluções de SOPs'},
+{p:'ml',t:'3º Workshop de IA'},{p:'ml',t:'1º playbook documentado'},
+{p:'mi',t:'Café mensal + revisão trimestral do mapa'},
+{p:'mco',t:'Apresentar 1º moonshot com business case'},{p:'mco',t:'1 exposição intencional'}],
+marco:'Linha do tempo SOPs + 1º moonshot + 1º playbook + Coursera concluído'},
+{curso:'Curso: Liderança e Estratégia de Produtos Digitais (Tera) — início',items:[
+{p:'mv',t:'5º radar estratégico + 1:1'},{p:'mv',t:'5º deep dive estratégico'},{p:'mv',t:'5º dia de operação na ponta'},
+{p:'ml',t:'4º Workshop de IA'},{p:'ml',t:'2º playbook documentado'},{p:'ml',t:'Acompanhar reuniões-chave de outro coordenador (2º trim)'},
+{p:'mi',t:'Café mensal com stakeholder de área nova'},
+{p:'mco',t:'1 exposição + autoavaliação: padrões nos conflitos?'}],
+marco:'2º playbook + Tera iniciado'},
+{curso:'Curso: Tera — conclusão',items:[
+{p:'mv',t:'6º radar estratégico + 1:1'},{p:'mv',t:'6º deep dive estratégico'},{p:'mv',t:'6º dia de operação na ponta'},
+{p:'ml',t:'5º Workshop de IA'},{p:'ml',t:'3º playbook documentado'},{p:'ml',t:'2º feedback estruturado com Monica'},
+{p:'mi',t:'Café mensal + revisão trimestral do mapa'},
+{p:'mco',t:'Retrospectiva do semestre: evolução nos 4 pilares'}],
+marco:'3 playbooks + retrospectiva semestral + Tera concluído'},
+{curso:'Curso: Turning Point (Coursera / FIA) — início',items:[
+{p:'mv',t:'7º radar estratégico + 1:1'},{p:'mv',t:'7º deep dive estratégico'},{p:'mv',t:'7º dia de operação na ponta'},
+{p:'ml',t:'6º Workshop de IA'},{p:'ml',t:'Avaliar impacto da cross-squad: resultados parciais'},
+{p:'mi',t:'Café mensal + revisão trimestral + iniciar feedback 360 informal'},
+{p:'mco',t:'1 exposição intencional + feedback pontual'}],
+marco:'Feedback 360 informal iniciado + cross-squad com resultados'},
+{curso:'Curso: Turning Point (Coursera) — conclusão',items:[
+{p:'mv',t:'8º radar estratégico + 1:1'},{p:'mv',t:'8º deep dive estratégico'},{p:'mv',t:'8º dia de operação na ponta'},
+{p:'ml',t:'7º Workshop de IA'},{p:'ml',t:'Acompanhar reuniões-chave de coordenador (3º trim)'},
+{p:'mi',t:'Café mensal + compilar feedback 360 informal'},
+{p:'mco',t:'Preparar 2º moonshot com business case'}],
+marco:'Turning Point concluído + 2º moonshot em preparação'},
+{curso:'Mês de consolidação — sem curso novo (foco no portfólio)',items:[
+{p:'mv',t:'9º radar estratégico + 1:1'},{p:'mv',t:'9º deep dive estratégico'},{p:'mv',t:'9º dia de operação na ponta'},
+{p:'ml',t:'8º Workshop de IA'},{p:'ml',t:'3º feedback estruturado com Monica'},{p:'ml',t:'Fechar cross-squad + documentar impacto'},
+{p:'mi',t:'Café mensal + revisão trimestral do mapa'},
+{p:'mco',t:'Apresentar 2º moonshot'},{p:'mco',t:'Montar portfólio de promoção: entregas, feedback 360, evolução nos 4 pilares, cursos'}],
+marco:'Cross-squad finalizada + 2º moonshot + portfólio de promoção'}
+];
+var DEFAULT_STK=[
+{nome:'Moacir Alegria',ini:'MA',nivel:'Head Comercial e SOPs',grp:'sops',x:68,y:95,quad:'gerenciar',sent:'promotor',sentLabel:'Promotor',sentNota:'Comprado com crescimento de Self.',estr:'Alinhar prioridades e dar visibilidade de resultados frequentemente.',nota:'Direciona e cobra Rita e Lais. Head máximo.',freq:'1x a cada 2 meses',data:'',notas:'',dica:'Traga resultados consolidados, não detalhes. Mostre impacto estratégico em 2-3 slides. Pergunte qual é a prioridade dele para o próximo trimestre. Frequência ideal: 1x a cada 2 meses ou quando tiver resultado relevante.'},
+{nome:'Rita Matos',ini:'RM',nivel:'Head Comercial',grp:'comercial',x:78,y:90,quad:'gerenciar',sent:'promotor',sentLabel:'Promotora',sentNota:'Promove ativamente o crescimento de Self.',estr:'Report direto de progresso. Ela é quem manda no tema.',nota:'Quem manda. Thalita alinha decisões com ela.',freq:'1x a cada 2 meses',data:'',notas:'',dica:'Seja direta e objetiva — Rita tem pouco tempo. Mande ping com 1-2 frases do insight + "podemos trocar 15min?". Traga dados que ela não viu. Mostre que você pensa no médio prazo, não só no operacional.'},
+{nome:'Lais Azzolini',ini:'LA',nivel:'Gerente de SOPs',grp:'sops',x:82,y:78,quad:'gerenciar',sent:'promotor',sentLabel:'Promotora',sentNota:'Quer protagonismo de SOPs nesse tema.',estr:'Envolver ativamente — ela quer protagonismo de SOPs.',nota:'Gestora da Kevilyn. Quer destaque e protagonismo para SOPs.',freq:'1x a cada 45 dias',data:'',notas:'',dica:'Sua gestora direta — traga visibilidade de tudo que SOPs está entregando. Posicione as entregas como "SOPs liderando X". Pergunte: "como posso te ajudar a mostrar o impacto do time?"'},
+{nome:'Gabriela Moreira',ini:'GM',nivel:'GPM Self',grp:'produto',x:72,y:85,quad:'gerenciar',sent:'promotor-ressalva',sentLabel:'Promotora com ressalva',sentNota:'A favor de crescer Self, mas resistente em priorizar desenvolvimento de produto.',estr:'Relacionamento próximo. Apresentar demandas com dados fortes.',nota:'GPM Self. Personalidade forte, mais peso que Michael.',freq:'1x no mês',data:'',notas:'',dica:'Tem personalidade forte. Sempre traga dados antes de pedir priorização. Abordagem: "os dados mostram X, o impacto seria Y, o que acha?". Não chegue com opinião solta. Café mensal é ideal.'},
+{nome:'Thalita Peron',ini:'TP',nivel:'Coord Bots (Self)',grp:'comercial',x:92,y:68,quad:'gerenciar',sent:'promotor',sentLabel:'Promotora',sentNota:'Dona do tema, promotora total.',estr:'Parceira de execução. Autonomia para decidir, alinha com Rita.',nota:'Nova coordenadora de bots. Executa, decide, alinha com Rita.',freq:'1x no mês',data:'',notas:'',dica:'Sua principal parceira de construção. Troca semanal informal funciona bem. Compartilhe análises antes de apresentar — ela valida e complementa. Ofereça ajuda com dados proativamente.'},
+{nome:'Yuri Sousa',ini:'YS',nivel:'Coord Self',grp:'mkt',x:80,y:72,quad:'gerenciar',sent:'promotor',sentLabel:'Promotor',sentNota:'Apoia a transição, mesmo tendo passado o tema.',estr:'Consultar em decisões estratégicas.',nota:'Ex-dono do tema Self. Decisões estratégicas passam por ele e Dani.',freq:'Sob demanda',data:'',notas:'',dica:'Profissionalismo e foco nos fatos. Traga dados sempre — não opiniões. Evite embates em threads públicas. Use o "check pré-escalar" antes de levantar temas publicamente.'},
+{nome:'Evelin Amaral',ini:'EA',nivel:'Gerente Comercial',grp:'comercial',x:22,y:78,quad:'satisfeito',sent:'neutro',sentLabel:'Neutra',sentNota:'Foco no time humano. Só reage se impactar resultado.',estr:'Manter informada de impactos no resultado comercial humano.',nota:'Foco em time humano. Levanta a mão se impactar resultado.',freq:'1x a cada 45 dias',data:'',notas:'',dica:'Só se engaja quando o tema impacta o resultado comercial dela. Abordagem: compartilhe resultados que afetam o time humano. Pergunte como ela navega conflitos — ótima referência para esse gap seu.'},
+{nome:'Michael',ini:'Mi',nivel:'GPM Bots',grp:'produto',x:45,y:72,quad:'satisfeito',sent:'promotor',sentLabel:'Promotor',sentNota:'Apoia o crescimento de bots.',estr:'Manter alinhado sobre demandas de produto para bots.',nota:'GPM de Bots, gerente da Bruna. Menos peso que Gabriela.',freq:'1x a cada 45 dias',data:'',notas:'',dica:'Mais acessível que Gabriela. Mantenha alinhado sobre demandas de bots. Café informal a cada 45 dias funciona. Compartilhe insights de uso dos bots que possam informar priorização de produto.'},
+{nome:'Daniele',ini:'Da',nivel:'Analista Senior Self',grp:'mkt',x:85,y:42,quad:'informado',sent:'promotor',sentLabel:'Promotora',sentNota:'Apoia ativamente com dados e propostas.',estr:'Parceira analítica. Incluir em discussões de dados e propostas.',nota:'Analisa self, represamento e ativação inteligente.',freq:'1x no mês',data:'',notas:'',dica:'Sua parceira analítica mais próxima. Troque sobre metodologias, compartilhe abordagens. Incluir ela em discussões de dados fortalece as duas. Troca semanal orgânica no Slack funciona.'},
+{nome:'Bruna Schlosser',ini:'BS',nivel:'PM Sofia',grp:'produto',x:78,y:38,quad:'informado',sent:'promotor',sentLabel:'Promotora',sentNota:'Apoia, mas difícil negociar priorização.',estr:'Envolver nas demandas específicas de Sofia/bot.',nota:'PM Sofia. Central no projeto de bots.',freq:'1x no mês',data:'',notas:'',dica:'Traga demandas específicas com impacto quantificado. Ela quer ajudar mas precisa de justificativa para priorizar. "Se fizermos X, impacta Y leads" funciona melhor que "precisamos de X".'},
+{nome:'Joao',ini:'Jo',nivel:'PM Self',grp:'produto',x:72,y:34,quad:'informado',sent:'promotor',sentLabel:'Promotor',sentNota:'Apoia, mas difícil negociar priorização.',estr:'Alinhar demandas de produto Self vendas.',nota:'PM Self vendas, sob Gabriela.',freq:'1x no mês',data:'',notas:'',dica:'Mesma abordagem da Bruna — dados + impacto quantificado. Café mensal para alinhar roadmap e antecipar necessidades. Pergunte o que está no backlog que pode impactar suas métricas.'},
+{nome:'Nicole',ini:'Ni',nivel:'PM Ativação',grp:'produto',x:72,y:28,quad:'informado',sent:'promotor',sentLabel:'Promotora',sentNota:'Apoia, mas difícil negociar priorização.',estr:'Envolver em transbordo inteligente e jornada de ativação.',nota:'PM Ativação inteligente e transbordos, sob Gabriela.',freq:'1x no mês',data:'',notas:'',dica:'Conexão direta com seu tema de ativação. Traga insights dos deep dives que impactem a jornada de ativação. Ofereça dados para informar decisões de produto. Café mensal.'},
+{nome:'Martim Cunha',ini:'MC',nivel:'Gerente Ativação',grp:'comercial',x:65,y:42,quad:'informado',sent:'promotor',sentLabel:'Promotor',sentNota:'Precisa crescer tudo em Self, a favor.',estr:'Informar sobre transbordo inteligente — vai ser métrica dele.',nota:'Vai se envolver em transbordo inteligente em ativação.',freq:'1x no mês',data:'',notas:'',dica:'Quer resultados em ativação. Traga insights de transbordo inteligente proativamente. Ele vai valorizar quem traz soluções antes dele pedir. 1:1 mensal com "achei isso e pensei em X" funciona muito.'},
+{nome:'Roberta Ilha',ini:'RI',nivel:'Coord Comercial',grp:'comercial',x:60,y:35,quad:'informado',sent:'promotor',sentLabel:'Promotora',sentNota:'A favor do crescimento Self.',estr:'Informar sobre impactos de transbordo no time.',nota:'Impactada por transbordo inteligente em ativação.',freq:'1x no mês',data:'',notas:'',dica:'Coord do time que mais sente o impacto de mudanças em transbordo. Mantenha informada antes de mudanças, não depois. "Estamos planejando X que pode impactar Y — quero te ouvir antes."'},
+{nome:'Yuri Monteiro',ini:'YM',nivel:'Coord Mkt/Inbound',grp:'mkt',x:82,y:48,quad:'informado',sent:'promotor',sentLabel:'Promotor',sentNota:'Comprado, guardião dos números.',estr:'Manter próximo — guardião dos números, conectado ao tema.',nota:'Consolida dados de Self e comercial, controla planos do mês.',freq:'1x a cada 45 dias',data:'',notas:'',dica:'Guardião dos números. Compartilhe análises e peça validação. Troca a cada 45 dias. Ele valoriza quando você traz algo que ele não viu nos dados. Bom aliado para construir narrativas numéricas.'},
+{nome:'Larissa Bueno',ini:'LB',nivel:'Coord SOPs CS',grp:'sops',x:56,y:30,quad:'informado',sent:'neutro',sentLabel:'Neutra',sentNota:'Começando a olhar ativação.',estr:'Informar conforme ativação evoluir.',nota:'Vai começar a olhar ativação, impactada por transbordo.',freq:'1x a cada 45 dias',data:'',notas:'',dica:'Está começando a olhar ativação — ofereça contexto proativamente. Traga insights do seu deep dive que possam ajudar o time dela. "Vi X no dado de ativação do CS, achei relevante pra você."'},
+{nome:'Ana Monteiro',ini:'AM',nivel:'Coord Eficiência',grp:'sops',x:58,y:25,quad:'informado',sent:'neutro',sentLabel:'Neutra',sentNota:'Apoio pontual em acessos e fluxos.',estr:'Envolver pontualmente em acessos e fluxos de novo bot.',nota:'Ajuda em eficiência comercial, acessos e fluxos de novo bot.',freq:'1x no mês',data:'',notas:'',dica:'Acionamento pontual quando precisar de acessos ou fluxos. Mantenha uma boa relação para quando precisar de algo urgente. Café informal quando houver projeto que envolva eficiência comercial.'},
+{nome:'Kleber Ferreira',ini:'KF',nivel:'Coord Comercial',grp:'comercial',x:18,y:28,quad:'monitorar',sent:'neutro',sentLabel:'Neutro',sentNota:'Só reage se resultado dos executivos cair.',estr:'Comunicar resultados gerais.',nota:'Levanta a mão se resultado dos executivos estiver ruim.',freq:'Sob demanda',data:'',notas:'',dica:'Não precisa de 1:1 recorrente. Comunique resultados gerais em canais compartilhados. Acione diretamente só se houver mudança que impacte o time dele.'},
+{nome:'Francieli Sousa',ini:'FS',nivel:'Coord Comercial',grp:'comercial',x:22,y:24,quad:'monitorar',sent:'neutro',sentLabel:'Neutra',sentNota:'Só reage se resultado dos executivos cair.',estr:'Comunicar resultados gerais.',nota:'Levanta a mão se resultado dos executivos estiver ruim.',freq:'Sob demanda',data:'',notas:'',dica:'Mesma abordagem do Kleber. Comunicação geral. Aproveite os dias de operação na ponta para puxar papo informal com ela — constrói relação sem esforço extra.'},
+{nome:'Veronica Canato',ini:'VC',nivel:'Coord Comercial',grp:'comercial',x:15,y:20,quad:'monitorar',sent:'neutro',sentLabel:'Neutra',sentNota:'Pouco envolvida no tema.',estr:'Incluir em comunicações gerais.',nota:'Coord comercial, pouco envolvida no tema de self/bots.',freq:'Sob demanda',data:'',notas:'',dica:'Comunicação mínima. Inclua em updates gerais. Não precisa de esforço dedicado.'},
+{nome:'Guilherme Oliveira',ini:'GO',nivel:'Coord SOPs iFood',grp:'sops',x:12,y:18,quad:'monitorar',sent:'neutro',sentLabel:'Neutro',sentNota:'Não diretamente impactado.',estr:'Comunicação mínima, apenas updates gerais.',nota:'Não diretamente impactado.',freq:'Sob demanda',data:'',notas:'',dica:'Updates gerais apenas. Mantenha boa relação institucional.'},
+{nome:'Erika Gengnagel',ini:'EG',nivel:'Coord Sales Enablement',grp:'sops',x:30,y:20,quad:'monitorar',sent:'neutro',sentLabel:'Neutra',sentNota:'Entra pontualmente para treinamentos.',estr:'Acionar quando houver necessidade de treinamento.',nota:'Ajuda em treinamentos comerciais.',freq:'Sob demanda',data:'',notas:'',dica:'Acione quando precisar de treinamento. Mantenha boa relação — quando você liderar uma iniciativa que precisa de enablement, ela será essencial.'},
+{nome:'Raquel Schiewaldt',ini:'RS',nivel:'Analista Senior',grp:'mkt',x:32,y:25,quad:'monitorar',sent:'neutro',sentLabel:'Neutra',sentNota:'Análises de leads apenas.',estr:'Consultar pontualmente para análises de leads.',nota:'Análises na parte de leads apenas.',freq:'Sob demanda',data:'',notas:'',dica:'Troca técnica orgânica. Compartilhe metodologias e peça opinião em análises. Fortalece sua rede horizontal — quem está do seu lado hoje valida sua promoção no 360.'},
+{nome:'Fernando Coli',ini:'FC',nivel:'Analista Senior',grp:'mkt',x:28,y:28,quad:'monitorar',sent:'neutro',sentLabel:'Neutro',sentNota:'Análises de leads apenas.',estr:'Consultar pontualmente para análises e forecast.',nota:'Análises na parte de leads apenas.',freq:'Sob demanda',data:'',notas:'',dica:'Mesmo approach da Raquel — troca técnica, compartilhamento de análises. Inclua em sessões de troca de conhecimento.'},
+{nome:'Bianca Valverde',ini:'BV',nivel:'PM Core',grp:'produto',x:38,y:30,quad:'monitorar',sent:'neutro',sentLabel:'Neutra',sentNota:'Entra quando tema Core é impactado.',estr:'Envolver quando tema Core for impactado.',nota:'Às vezes entra por ser PM Core.',freq:'Sob demanda',data:'',notas:'',dica:'Acionamento pontual. Quando tiver algo que impacte Core, avise proativamente para ganhar confiança.'},
+{nome:'Guilherme Lopes',ini:'GL',nivel:'Gerente de Growth',grp:'mkt',x:35,y:70,quad:'satisfeito',sent:'neutro',sentLabel:'Neutro',sentNota:'Pouco envolvido diretamente.',estr:'Café esporádico para trocar sobre growth e estratégia.',nota:'Gerente de Growth — perspectiva diferente sobre crescimento.',freq:'1x a cada 2 meses',data:'',notas:'',dica:'Ótimo para ampliar seu repertório estratégico. Café a cada 2 meses perguntando como Growth pensa crescimento. Traz perspectiva que você pode aplicar no planejamento comercial.'}
+];
+var DEFAULT_KPIS=[
+{nome:'Deep Dives Estratégicos',descricao:'Análises profundas de temas não óbvios apresentados para a gerência',objetivo:'1 por mês (9 no ano)',meses:{}},
+{nome:'Workshops de IA',descricao:'Sessões de compartilhamento sobre IA, agents e automações para o time',objetivo:'1 por mês a partir de agosto (8 no ano)',meses:{}},
+{nome:'Playbooks Documentados',descricao:'Documentação de processos-chave para reduzir dependência e dar autonomia ao time',objetivo:'3 até dezembro/26',meses:{}}
+];
+var GRP_NAMES={comercial:'Comercial',sops:'SOPs',enablement:'Sales Enablement',produto:'Produto',mkt:'Mkt / Análises',growth:'Growth / Marketing',outros:'Outros'};
+var QUAD_NAMES={gerenciar:'Gerenciar de Perto',satisfeito:'Manter Satisfeito',informado:'Manter Informado',monitorar:'Monitorar'};
+var SENT_ICONS={promotor:'+','promotor-ressalva':'~',neutro:'='};
+var SENT_SI={promotor:'si-p','promotor-ressalva':'si-pr',neutro:'si-n'};
+var PILAR_NAMES={visao:'Visão Estratégica',lideranca:'Liderança Formal',influencia:'Influência & Stakeholders',conflitos:'Conflitos Produtivos'};
+var PILAR_CLS={mv:'Visão Estratégica',ml:'Liderança Formal',mi:'Influência & Stakeholders',mco:'Conflitos Produtivos'};
+
+// ===== STATE =====
+var state;
+function defaultState(){
+  return {
+    pillarChecks:{},monthChecks:{},extraActions:{},
+    stakeholders:JSON.parse(JSON.stringify(DEFAULT_STK)),
+    projetos:[],
+    kpis:JSON.parse(JSON.stringify(DEFAULT_KPIS))
+  };
+}
+function loadState(){
+  try{var r=localStorage.getItem(LS);if(r){state=JSON.parse(r);if(!state.projetos)state.projetos=[];if(!state.kpis)state.kpis=JSON.parse(JSON.stringify(DEFAULT_KPIS));if(!state.stakeholders||!Array.isArray(state.stakeholders))state.stakeholders=JSON.parse(JSON.stringify(DEFAULT_STK));}else{state=defaultState();}}catch(e){state=defaultState();}
+}
+function saveState(){try{localStorage.setItem(LS,JSON.stringify(state));}catch(e){}}
+
+// ===== TABS =====
+function switchMain(i){document.querySelectorAll('.mtb').forEach(function(t,j){t.classList.toggle('active',j===i)});document.querySelectorAll('.mc').forEach(function(c,j){c.classList.toggle('active',j===i)})}
+function switchTab(i){document.querySelectorAll('.tb').forEach(function(t,j){t.classList.toggle('active',j===i)});document.querySelectorAll('.tc').forEach(function(c,j){c.classList.toggle('active',j===i)})}
+
+// ===== CHECKS =====
+function toggleCheck(el){el.classList.toggle('checked');el.innerHTML=el.classList.contains('checked')?'&#10003;':'';savePillarChecks();}
+function savePillarChecks(){for(var t=0;t<4;t++){var el=document.getElementById('tab-'+t);if(!el)continue;var cks=el.querySelectorAll('.ck');state.pillarChecks['tab-'+t]=[];cks.forEach(function(c){state.pillarChecks['tab-'+t].push(c.classList.contains('checked'))});}saveState();}
+function loadPillarChecks(){if(!state.pillarChecks)return;for(var k in state.pillarChecks){var el=document.getElementById(k);if(!el)continue;var cks=el.querySelectorAll('.ck');state.pillarChecks[k].forEach(function(v,i){if(v&&cks[i]){cks[i].classList.add('checked');cks[i].innerHTML='&#10003;';}});}}
+
+// ===== MONTHS =====
+var curMonth=0;
+function buildMonths(){
+  var tabsEl=document.getElementById('month-tabs');var contEl=document.getElementById('month-container');
+  tabsEl.innerHTML='';contEl.innerHTML='';
+  MONTHS.forEach(function(m,i){
+    var btn=document.createElement('button');btn.className='mtbs'+(i===0?' active':'');btn.textContent=m;btn.onclick=function(){switchMonth(i)};tabsEl.appendChild(btn);
+    var md=MONTH_DATA[i];var div=document.createElement('div');div.className='mmc'+(i===0?' active':'');div.id='month-'+i;
+    var checks=state.monthChecks['month-'+i]||[];
+    var h='<div class="mp"><div class="ptx">Progresso '+m+'</div><div class="pbg"><div class="pf" style="width:0%" id="prog-'+i+'"></div></div><div class="plb" id="progl-'+i+'">0%</div></div>';
+    h+='<div class="card"><div class="mph mcu">&#127891; '+md.curso+'</div>';
+    var ci=0;var lastP='';
+    md.items.forEach(function(it){
+      if(it.p!==lastP){h+='<div class="mph '+it.p+'">'+({mv:'&#127919; Visão Estratégica',ml:'&#128101; Liderança Formal',mi:'&#127760; Influência & Stakeholders',mco:'&#9889; Conflitos Produtivos'}[it.p])+'</div>';lastP=it.p;}
+      var chk=checks[ci]?'checked':'';var icon=checks[ci]?'&#10003;':'';
+      h+='<div class="ai"><div class="ck '+chk+'" onclick="toggleMC(this,'+i+')">'+icon+'</div><div><div class="at">'+it.t+'</div></div></div>';
+      ci++;
+    });
+    // Extra actions
+    h+='<div id="extra-'+i+'">';
+    var extras=state.extraActions['extra-'+i]||[];
+    extras.forEach(function(ex,ei){
+      var chk2=ex.checked?'checked':'';var icon2=ex.checked?'&#10003;':'';
+      h+='<div class="ai" data-extra="'+ei+'"><div class="ck '+chk2+'" onclick="toggleMC(this,'+i+')">'+icon2+'</div><div><div class="at"><span class="tag" style="font-size:9px;padding:1px 6px;background:var(--accentL);color:var(--accent);margin-right:4px">'+PILAR_NAMES[ex.pilar]+'</span>'+ex.text+(ex.quem?' <span style="font-size:10px;color:var(--text2)">('+ex.quem+')</span>':'')+'</div></div><button class="bd" onclick="delExtra('+i+','+ei+')" style="margin-left:auto">&times;</button></div>';
+    });
+    h+='</div>';
+    h+='<button class="bs" onclick="openActionModal('+i+')">+ Adicionar ação (orientação da 1:1)</button>';
+    h+='<div class="marco">&#127942; Marco: '+md.marco+'</div></div>';
+    div.innerHTML=h;contEl.appendChild(div);
+  });
+  MONTHS.forEach(function(_,i){updateMP(i)});
+}
+function switchMonth(i){curMonth=i;document.querySelectorAll('.mtbs').forEach(function(t,j){t.classList.toggle('active',j===i)});document.querySelectorAll('.mmc').forEach(function(c,j){c.classList.toggle('active',j===i)})}
+function toggleMC(el,m){el.classList.toggle('checked');el.innerHTML=el.classList.contains('checked')?'&#10003;':'';saveMonthChecks(m);updateMP(m);}
+function updateMP(m){var c=document.getElementById('month-'+m);if(!c)return;var t=c.querySelectorAll('.ck').length,d=c.querySelectorAll('.ck.checked').length,p=t>0?Math.round(d/t*100):0;var b=document.getElementById('prog-'+m);var l=document.getElementById('progl-'+m);if(b)b.style.width=p+'%';if(l)l.textContent=p+'%';}
+function saveMonthChecks(m){var c=document.getElementById('month-'+m);if(!c)return;var cks=c.querySelectorAll('.ck');state.monthChecks['month-'+m]=[];cks.forEach(function(ck){state.monthChecks['month-'+m].push(ck.classList.contains('checked'))});saveState();}
+function delExtra(m,ei){var extras=state.extraActions['extra-'+m]||[];extras.splice(ei,1);state.extraActions['extra-'+m]=extras;saveState();buildMonths();switchMonth(m);}
+
+// Action modal
+var actionMonth=-1;
+function openActionModal(m){actionMonth=m;document.getElementById('action-modal').classList.add('show')}
+function closeActionModal(){document.getElementById('action-modal').classList.remove('show');document.getElementById('am-text').value='';document.getElementById('am-quem').value='';actionMonth=-1}
+function saveActionModal(){
+  var text=document.getElementById('am-text').value.trim();var quem=document.getElementById('am-quem').value.trim();var pilar=document.getElementById('am-pilar').value;
+  if(!text){alert('Descreva a ação');return;}
+  if(!state.extraActions['extra-'+actionMonth])state.extraActions['extra-'+actionMonth]=[];
+  state.extraActions['extra-'+actionMonth].push({text:text,quem:quem,pilar:pilar,checked:false});
+  saveState();var m=actionMonth;closeActionModal();buildMonths();switchMonth(m);
+}
+
+// ===== STAKEHOLDERS =====
+function buildStk(){
+  var cont=document.getElementById('stk-container');cont.innerHTML='';
+  // Group by quadrant
+  var qOrder=['gerenciar','satisfeito','informado','monitorar'];
+  qOrder.forEach(function(q){
+    var items=[];state.stakeholders.forEach(function(s,i){if(s.quad===q)items.push({s:s,i:i})});
+    if(items.length===0)return;
+    var h='<div class="card" style="overflow-x:auto"><div class="skg">'+QUAD_NAMES[q]+'</div>';
+    h+='<table class="stk"><thead><tr><th>Nome</th><th>Cargo</th><th>Postura</th><th>Frequência</th><th>Último contato</th><th>Observações</th><th></th></tr></thead><tbody>';
+    items.forEach(function(obj){
+      var s=obj.s,i=obj.i;
+      var sentCls=s.sent==='promotor'?'stb':s.sent==='promotor-ressalva'?'stm':'';
+      var sentLabel=s.sentLabel||s.sent||'';
+      h+='<tr onclick="showStkTip('+i+')" style="cursor:pointer"><td><strong>'+escHtml(s.nome)+'</strong></td><td>'+escHtml(s.nivel)+'</td>';
+      h+='<td><span class="st2 '+(sentCls||'')+'">'+sentLabel+'</span></td>';
+      h+='<td>'+escHtml(s.freq||'—')+'</td>';
+      h+='<td><input class="li" type="date" style="width:130px" value="'+(s.data||'')+'" onclick="event.stopPropagation()" onchange="updStk('+i+',\'data\',this.value)"></td>';
+      h+='<td><input class="li" type="text" placeholder="Notas..." style="width:160px" value="'+escHtml(s.notas||'')+'" onclick="event.stopPropagation()" onchange="updStk('+i+',\'notas\',this.value)"></td>';
+      h+='<td><button class="be" onclick="event.stopPropagation();editStk('+i+')" title="Editar">&#9998;</button><button class="bd" onclick="event.stopPropagation();delStk('+i+')" title="Excluir">&times;</button></td></tr>';
+    });
+    h+='</tbody></table></div>';
+    cont.innerHTML+=h;
+  });
+  // Ungrouped (added manually without quad)
+  var ungrouped=[];state.stakeholders.forEach(function(s,i){if(!s.quad)ungrouped.push({s:s,i:i})});
+  if(ungrouped.length>0){
+    var h='<div class="card" style="overflow-x:auto"><div class="skg">Outros</div>';
+    h+='<table class="stk"><thead><tr><th>Nome</th><th>Cargo</th><th>Postura</th><th>Frequência</th><th>Último contato</th><th>Observações</th><th></th></tr></thead><tbody>';
+    ungrouped.forEach(function(obj){
+      var s=obj.s,i=obj.i;
+      h+='<tr onclick="showStkTip('+i+')" style="cursor:pointer"><td><strong>'+escHtml(s.nome)+'</strong></td><td>'+escHtml(s.nivel||'')+'</td><td>'+escHtml(s.sentLabel||'—')+'</td><td>'+escHtml(s.freq||'—')+'</td>';
+      h+='<td><input class="li" type="date" style="width:130px" value="'+(s.data||'')+'" onclick="event.stopPropagation()" onchange="updStk('+i+',\'data\',this.value)"></td>';
+      h+='<td><input class="li" type="text" placeholder="Notas..." style="width:160px" value="'+escHtml(s.notas||'')+'" onclick="event.stopPropagation()" onchange="updStk('+i+',\'notas\',this.value)"></td>';
+      h+='<td><button class="be" onclick="event.stopPropagation();editStk('+i+')" title="Editar">&#9998;</button><button class="bd" onclick="event.stopPropagation();delStk('+i+')" title="Excluir">&times;</button></td></tr>';
+    });
+    h+='</tbody></table></div>';cont.innerHTML+=h;
+  }
+}
+function escHtml(s){return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function updStk(i,field,val){state.stakeholders[i][field]=val;saveState();}
+function delStk(i){state.stakeholders.splice(i,1);saveState();buildStk();buildMap();}
+function showStkTip(i){
+  var s=state.stakeholders[i];if(!s)return;
+  var sp=document.getElementById('sp-content');
+  var h='<div class="sp-name">'+escHtml(s.nome)+' — '+escHtml(s.nivel)+'</div>';
+  if(s.quad)h+='<p class="sp-tip" style="margin-bottom:4px"><strong>Quadrante:</strong> '+(QUAD_NAMES[s.quad]||s.quad)+'</p>';
+  if(s.sentLabel)h+='<p class="sp-tip" style="margin-bottom:4px"><strong>Postura:</strong> '+escHtml(s.sentLabel)+'</p>';
+  if(s.sentNota)h+='<p class="sp-tip" style="margin-bottom:4px;font-style:italic">'+escHtml(s.sentNota)+'</p>';
+  h+='<div class="sp-divider"></div>';
+  if(s.dica){h+='<p class="sp-tip"><strong>&#128161; Como se aproximar:</strong></p><p class="sp-tip">'+escHtml(s.dica)+'</p>';}
+  else if(s.estr){h+='<p class="sp-tip"><strong>Estratégia:</strong> '+escHtml(s.estr)+'</p>';}
+  if(s.nota){h+='<div class="sp-divider"></div><p class="sp-tip" style="font-size:10px;color:var(--text2)"><strong>Nota:</strong> '+escHtml(s.nota)+'</p>';}
+  sp.innerHTML=h;
+}
+// MAP
+function buildMap(){
+  var map=document.getElementById('stk-map');
+  map.querySelectorAll('.dot').forEach(function(d){d.remove()});
+  var tip=document.getElementById('mtooltip');
+  state.stakeholders.forEach(function(s,i){
+    if(!s.x||!s.y)return;
+    var dot=document.createElement('div');
+    var grpCls=s.grp?'grp-'+s.grp:'grp-sops';
+    var sentCls=s.sent?'sent-'+s.sent:'sent-neutro';
+    dot.className='dot '+grpCls+' '+sentCls;
+    dot.style.left=(6+s.x*0.88)+'%';dot.style.top=(94-s.y*0.88)+'%';
+    var siCls=SENT_SI[s.sent]||'si-n';
+    var siIcon=SENT_ICONS[s.sent]||'=';
+    dot.innerHTML='<div class="dot-c">'+(s.ini||s.nome.charAt(0))+'<span class="si '+siCls+'">'+siIcon+'</span></div><div class="dot-lbl">'+escHtml(s.nome)+'</div>';
+    dot.addEventListener('mouseenter',function(e){
+      var qLabel=QUAD_NAMES[s.quad]||'';
+      var sentBadge=s.sent==='promotor-ressalva'?'ttb-promotor-ressalva':'ttb-'+(s.sent||'neutro');
+      tip.innerHTML='<div class="tt-n">'+escHtml(s.nome)+'</div><div class="tt-r">'+escHtml(s.nivel)+'</div>'+(s.nota?'<div>'+escHtml(s.nota)+'</div>':'')+'<div class="tt-badges"><span class="tt-b ttb-'+s.quad+'">'+qLabel+'</span><span class="tt-b '+sentBadge+'">'+(s.sentLabel||'')+'</span></div>'+(s.sentNota?'<div style="margin-top:6px;font-size:11px;color:var(--accent)"><b>Postura:</b> '+escHtml(s.sentNota)+'</div>':'')+(s.estr?'<div style="margin-top:4px;font-size:11px;color:var(--text2)"><b>Estratégia:</b> '+escHtml(s.estr)+'</div>':'');
+      tip.style.display='block';posMap(e);
+    });
+    dot.addEventListener('mousemove',posMap);
+    dot.addEventListener('mouseleave',function(){tip.style.display='none'});
+    dot.addEventListener('click',function(){showStkTip(i)});
+    map.appendChild(dot);
+  });
+}
+function posMap(e){var tip=document.getElementById('mtooltip');var x=e.clientX+16,y=e.clientY-10;if(x+320>window.innerWidth)x=e.clientX-320;if(y+180>window.innerHeight)y=e.clientY-180;tip.style.left=x+'px';tip.style.top=y+'px';}
+var editingStkI=-1;
+function editStk(i){
+  editingStkI=i;var s=state.stakeholders[i];
+  document.getElementById('sm-nome').value=s.nome||'';document.getElementById('sm-nivel').value=s.nivel||'';
+  document.getElementById('sm-quad').value=s.quad||'informado';
+  document.getElementById('sm-sent').value=s.sent||'neutro';
+  document.getElementById('sm-freq').value=s.freq||'Sob demanda';
+  document.getElementById('sm-grp').value=s.grp||'sops';
+  document.getElementById('sm-estr').value=s.estr||'';
+  document.getElementById('sm-dica').value=s.dica||'';
+  document.getElementById('stk-modal-title').textContent='Editar Stakeholder';
+  document.getElementById('stk-modal-btn').textContent='Salvar';
+  document.getElementById('stk-modal').classList.add('show');
+}
+function openStkModal(){editingStkI=-1;document.getElementById('stk-modal-title').textContent='Adicionar Stakeholder';document.getElementById('stk-modal-btn').textContent='Adicionar';document.getElementById('sm-nome').value='';document.getElementById('sm-nivel').value='';document.getElementById('sm-estr').value='';document.getElementById('sm-dica').value='';document.getElementById('stk-modal').classList.add('show')}
+function closeStkModal(){document.getElementById('stk-modal').classList.remove('show');editingStkI=-1}
+function saveStkModal(){
+  var nome=document.getElementById('sm-nome').value.trim();var nivel=document.getElementById('sm-nivel').value.trim();
+  if(!nome){alert('Preencha o nome');return;}
+  var quad=document.getElementById('sm-quad').value;var sent=document.getElementById('sm-sent').value;
+  var freq=document.getElementById('sm-freq').value;var grp=document.getElementById('sm-grp').value;
+  var estr=document.getElementById('sm-estr').value.trim();var dica=document.getElementById('sm-dica').value.trim();
+  var sentLabels={promotor:'Promotor','promotor-ressalva':'Promotor com ressalva',neutro:'Neutro'};
+  // Default position based on quadrant
+  var defaultPos={gerenciar:{x:75,y:80},satisfeito:{x:25,y:75},informado:{x:70,y:35},monitorar:{x:25,y:25}};
+  if(editingStkI>=0){
+    var s=state.stakeholders[editingStkI];
+    s.nome=nome;s.nivel=nivel;s.quad=quad;s.sent=sent;s.sentLabel=sentLabels[sent]||sent;s.freq=freq;s.grp=grp;s.estr=estr;s.dica=dica;
+    if(!s.ini)s.ini=nome.split(' ').map(function(w){return w.charAt(0)}).join('').substring(0,2).toUpperCase();
+  }else{
+    var dp=defaultPos[quad]||{x:50,y:50};
+    state.stakeholders.push({nome:nome,ini:nome.split(' ').map(function(w){return w.charAt(0)}).join('').substring(0,2).toUpperCase(),nivel:nivel,grp:grp,x:dp.x,y:dp.y,quad:quad,sent:sent,sentLabel:sentLabels[sent]||sent,sentNota:'',estr:estr,nota:'',freq:freq,data:'',notas:'',dica:dica});
+  }
+  saveState();closeStkModal();buildStk();buildMap();
+}
+
+// ===== PROJETOS =====
+function buildProj(){
+  var cont=document.getElementById('proj-container');cont.innerHTML='';
+  if(state.projetos.length===0){cont.innerHTML='<div class="card" style="text-align:center;color:var(--text2);font-size:13px;padding:40px">Nenhum projeto cadastrado. Clique em "+ Adicionar projeto" para começar.</div>';return;}
+  state.projetos.forEach(function(p,i){
+    var h='<div class="proj-card"><h4>'+escHtml(p.nome)+'<span><button class="be" onclick="editProj('+i+')" title="Editar">&#9998;</button><button class="bd" onclick="delProj('+i+')" title="Excluir">&times;</button></span></h4>';
+    h+='<div class="proj-meta">';
+    if(p.dataInicio)h+='<span class="proj-tag">Início: '+p.dataInicio+'</span>';
+    if(p.areas)p.areas.split(',').forEach(function(a){h+='<span class="proj-tag">'+a.trim()+'</span>'});
+    h+='</div>';
+    if(p.descricao)h+='<div class="proj-field"><strong>Descrição:</strong> '+escHtml(p.descricao)+'</div>';
+    if(p.objetivo)h+='<div class="proj-field"><strong>Objetivo:</strong> '+escHtml(p.objetivo)+'</div>';
+    if(p.impacto)h+='<div class="proj-field"><strong>Impacto esperado:</strong> '+escHtml(p.impacto)+'</div>';
+    h+='</div>';cont.innerHTML+=h;
+  });
+}
+var editingProjI=-1;
+function openProjModal(){editingProjI=-1;document.getElementById('proj-modal-title').textContent='Adicionar Projeto';document.getElementById('proj-modal-btn').textContent='Adicionar';document.getElementById('proj-modal').classList.add('show')}
+function closeProjModal(){document.getElementById('proj-modal').classList.remove('show');['pm-nome','pm-desc','pm-data','pm-areas','pm-obj','pm-imp'].forEach(function(id){document.getElementById(id).value=''});editingProjI=-1}
+function editProj(i){
+  editingProjI=i;var p=state.projetos[i];
+  document.getElementById('pm-nome').value=p.nome||'';document.getElementById('pm-desc').value=p.descricao||'';
+  document.getElementById('pm-data').value=p.dataInicio||'';document.getElementById('pm-areas').value=p.areas||'';
+  document.getElementById('pm-obj').value=p.objetivo||'';document.getElementById('pm-imp').value=p.impacto||'';
+  document.getElementById('proj-modal-title').textContent='Editar Projeto';document.getElementById('proj-modal-btn').textContent='Salvar';
+  document.getElementById('proj-modal').classList.add('show');
+}
+function delProj(i){state.projetos.splice(i,1);saveState();buildProj()}
+function saveProjModal(){
+  var nome=document.getElementById('pm-nome').value.trim();if(!nome){alert('Preencha o nome');return;}
+  var obj={nome:nome,descricao:document.getElementById('pm-desc').value.trim(),dataInicio:document.getElementById('pm-data').value,areas:document.getElementById('pm-areas').value.trim(),objetivo:document.getElementById('pm-obj').value.trim(),impacto:document.getElementById('pm-imp').value.trim()};
+  if(editingProjI>=0){state.projetos[editingProjI]=obj}else{state.projetos.push(obj)}
+  saveState();closeProjModal();buildProj();
+}
+
+// ===== KPIs =====
+function buildKpis(){
+  var cont=document.getElementById('kpi-container');cont.innerHTML='';
+  state.kpis.forEach(function(k,ki){
+    var h='<div class="kpi-card"><div class="kpi-header" onclick="toggleKpi('+ki+')"><div><h4>'+escHtml(k.nome)+'</h4><div class="kpi-desc">'+escHtml(k.descricao||'')+'</div><div class="kpi-obj">Meta: '+escHtml(k.objetivo||'')+'</div></div><div style="display:flex;gap:4px;align-items:center"><button class="bd" onclick="event.stopPropagation();delKpi('+ki+')">&times;</button><span class="arrow" id="arrow-'+ki+'">&#9660;</span></div></div>';
+    h+='<div class="kpi-body" id="kpib-'+ki+'">';
+    MONTHS.forEach(function(m,mi){
+      var mkey='m'+mi;var md=k.meses[mkey]||{obj:'',data:'',check:false,evolucao:''};
+      var chk=md.check?'checked':'';var icon=md.check?'&#10003;':'';var showEv=md.check?' show':'';
+      h+='<div class="kpi-month"><div class="kpi-month-header"><span class="kpi-month-label">'+m+'</span></div>';
+      h+='<div class="kpi-fields">';
+      h+='<label>Objetivo para contribuir com esta meta</label><input type="text" value="'+escHtml(md.obj||'')+'" onchange="updKpi('+ki+',\''+mkey+'\',\'obj\',this.value)" placeholder="O que planejo fazer este mês...">';
+      h+='<label>Data</label><input type="date" value="'+(md.data||'')+'" onchange="updKpi('+ki+',\''+mkey+'\',\'data\',this.value)">';
+      h+='<div class="kpi-check-row"><div class="ck '+chk+'" onclick="toggleKpiCheck(this,'+ki+',\''+mkey+'\')">'+icon+'</div><span class="kpi-check-label">Evoluí neste mês</span></div>';
+      h+='<div class="kpi-evolucao'+showEv+'" id="kpievo-'+ki+'-'+mi+'"><label>O que consegui evoluir</label><textarea rows="2" onchange="updKpi('+ki+',\''+mkey+'\',\'evolucao\',this.value)" placeholder="Descreva sua evolução...">'+escHtml(md.evolucao||'')+'</textarea></div>';
+      h+='</div></div>';
+    });
+    h+='</div></div>';cont.innerHTML+=h;
+  });
+}
+function toggleKpi(ki){var b=document.getElementById('kpib-'+ki);var a=document.getElementById('arrow-'+ki);b.classList.toggle('open');a.classList.toggle('open')}
+function updKpi(ki,mkey,field,val){if(!state.kpis[ki].meses[mkey])state.kpis[ki].meses[mkey]={obj:'',data:'',check:false,evolucao:''};state.kpis[ki].meses[mkey][field]=val;saveState();}
+function toggleKpiCheck(el,ki,mkey){
+  el.classList.toggle('checked');el.innerHTML=el.classList.contains('checked')?'&#10003;':'';
+  if(!state.kpis[ki].meses[mkey])state.kpis[ki].meses[mkey]={obj:'',data:'',check:false,evolucao:''};
+  state.kpis[ki].meses[mkey].check=el.classList.contains('checked');
+  var mi=parseInt(mkey.replace('m',''));var evo=document.getElementById('kpievo-'+ki+'-'+mi);
+  if(evo){if(el.classList.contains('checked'))evo.classList.add('show');else evo.classList.remove('show')}
+  saveState();
+}
+function delKpi(i){state.kpis.splice(i,1);saveState();buildKpis()}
+function openKpiModal(){document.getElementById('kpi-modal').classList.add('show')}
+function closeKpiModal(){document.getElementById('kpi-modal').classList.remove('show');document.getElementById('km-nome').value='';document.getElementById('km-desc').value='';document.getElementById('km-obj').value=''}
+function saveKpiModal(){
+  var nome=document.getElementById('km-nome').value.trim();if(!nome){alert('Preencha o nome');return;}
+  state.kpis.push({nome:nome,descricao:document.getElementById('km-desc').value.trim(),objetivo:document.getElementById('km-obj').value.trim(),meses:{}});
+  saveState();closeKpiModal();buildKpis();
+}
+
+// ===== MODAL CLOSE ON OVERLAY =====
+document.querySelectorAll('.mo').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o)o.classList.remove('show')})});
+
+// ===== INIT =====
+loadState();loadPillarChecks();buildMonths();buildStk();buildMap();buildProj();buildKpis();
+</script>
+</body>
+</html>
